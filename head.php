@@ -9,9 +9,10 @@
     <link rel="icon" href="./assets/img/logo-v2-1.svg" type="image/x-icon"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="./assets/Font-Awesome/css/all.css"/>
-<!--    
     <link href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.2-web/css/all.min.css" rel="stylesheet">
+
+<!--    
+    <link rel="stylesheet" href="./assets/Font-Awesome/css/all.css"/>
 
       <link rel="stylesheet" href="./assets/Font-Awesome/css/all.min.css"/>
 
