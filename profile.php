@@ -200,8 +200,8 @@ include "./head.php";
                                 <form class="needs-validation"  method="post">
                                   <p class="text-dark mt-2">الدولة : <span class="text-secondary">مصر</span></p>
                                   <div class="form-outline text-start mb-2">
-                                    <label class="form-label select-label text-dark" for="SelectCountry">الدولة<span class="text-danger">*</span></label>
-                                    <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="الدولة" class="form-select" name="SelectCountry" id="SelectCountry" required>
+                                    <label class="form-label select-label text-dark" for="SelectNewCountry">الدولة<span class="text-danger">*</span></label>
+                                    <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="الدولة" class="form-select" name="SelectNewCountry" id="SelectNewCountry" required>
                                       <option value="Afghanistan">Afghanistan</option>
                                       <option value="Åland Islands">Åland Islands</option>
                                       <option value="Albania">Albania</option>
@@ -449,6 +449,29 @@ include "./head.php";
                                     </select>
                                   </div>
 
+                                  <p class="text-dark mt-2">المدينة : <span class="text-secondary">مصر</span></p>
+                                  <div class="form-outline text-start mb-2">
+                                    <label class="form-label select-label text-dark" for="SelectNewCity">المدينة<span class="text-danger">*</span></label>
+                                    <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="المدينة" class="form-select" name="SelectNewCity" id="SelectNewCity" required>
+                                    <option value="East Jerusalem">East Jerusalem</option>
+                                    <option value="Hebron">Hebron</option>
+                                    <option value="Nablus">Nablus</option>
+                                    <option value="Gaza City">Gaza City</option>
+                                    <option value="Jenin">Jenin</option>
+                                    <option value="Ramallah">Ramallah</option>
+                                    <option value="Bethlehem">Bethlehem</option>
+                                    <option value="Khan Yunis">Khan Yunis</option>
+                                    <option value="Rafah">Rafah</option>
+                                      <!--
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                      <option value="7">7</option>-->
+                                    </select>
+                                  </div>
                                   <p class="text-dark mt-2">نطاق الاستثمار : <span class="text-secondary">12000$</span></p>
                                   <div class="form-outline mb-2">
                                   <label class="form-label text-dark" for="SelectInvestmentScope">نطاق الاستثمار<span class="text-danger">*</span></label>
@@ -478,34 +501,40 @@ include "./head.php";
                                   <p class="text-dark mt-2">مراحل عمل الشركة : <span class="text-secondary">ربحية</span></p>
                                   <div class="text-start mb-2">
                                 <div class="form-check form-check-inline ">
-                                  <input class="form-check-input" type="checkbox" name="checkboxvar[]" id="inlineCheckbox1" value="option1" required />
+                                  <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox1" value="option1" required />
                                   <label class="form-check-label" for="inlineCheckbox1">منتج النموذج الأولي/المنتج النهائي</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" name="checkboxvar[]" id="inlineCheckbox2" value="option2" />
+                                  <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox2" value="option2" />
                                   <label class="form-check-label" for="inlineCheckbox2">غير ذلك</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" name="checkboxvar[]" id="inlineCheckbox3" value="option3" />
+                                  <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox3" value="option3" />
                                   <label class="form-check-label" for="inlineCheckbox3">الربحية</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" name="checkboxvar[]" id="inlineCheckbox4" value="option4" />
+                                  <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox4" value="option4" />
                                   <label class="form-check-label" for="inlineCheckbox4">التحقيق في الربح</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" name="checkboxvar[]" id="inlineCheckbox5" value="option5" />
+                                  <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox5" value="option5" />
                                   <label class="form-check-label" for="inlineCheckbox5">تحقيق المبيعات</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" name="checkboxvar[]" id="inlineCheckbox6" value="option6" />
+                                  <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox6" value="option6" />
                                   <label class="form-check-label" for="inlineCheckbox6">قبل بدء العمل/البحث والتطوير</label>
                                 </div>
                               </div>
                                   <p class="text-dark mt-2">لينكدان : <span class="text-secondary">علا خالد</span></p>
                                   <div data-mdb-input-init class="form-outline text-start mb-2">
-                                    <input type="text" name="NewLinkedIn" id="NewLinkedIn" placeholder="لينكدان" class="form-control form-control-lg"/>
-                                    <label class="form-label" for="NewLinkedIn">لينكدان</label>
+                                    <input type="text" name="NewLinkedIn" id="NewLinkedIn" placeholder="لينكدان الجديد" class="form-control form-control-lg"/>
+                                    <label class="form-label" for="NewLinkedIn">لينكدان الجديد</label>
+                                  </div>
+                                  <p class="text-dark mt-2">فيس بوك : <span class="text-secondary">علا خالد</span></p>
+
+                                  <div data-mdb-input-init class="form-outline text-start mb-2">
+                                    <input type="text" name="NewFacebook" id="NewFacebook" placeholder="فيس بوك الجديد" class="form-control form-control-lg"/>
+                                    <label class="form-label" for="NewFacebook">فيس بوك الجديد</label>
                                   </div>
                                   <div class="text-center">
                                     <button type="submit" class="btn btn-primary" data-mdb-ripple-init>حفظ</button>
@@ -524,6 +553,9 @@ include "./head.php";
                       الدولة: <span class="text-secondary">مصر</span>
                     </p>
                     <p class="card-text text-dark mt-2">
+                      المدينة: <span class="text-secondary">اسيوط</span>
+                    </p>
+                    <p class="card-text text-dark mt-2">
                       نطاق الاستثمار : <span class="text-secondary">12000$</span>
                     </p>
                     <p class="card-text text-dark mt-2">
@@ -531,6 +563,9 @@ include "./head.php";
                     </p>
                     <p class="card-text text-dark mt-2">
                       لينكدان : <span class="text-secondary">علا خالد</span>
+                    </p>
+                    <p class="card-text text-dark mt-2">
+                      فيس بوك : <span class="text-secondary">علا خالد</span>
                     </p>
                   </div>
 
@@ -607,6 +642,12 @@ include "./head.php";
                         خدمات الأعمال
                       </p>
                     </div>
+                    <h5 class="card-title fw-bold">
+                    المواقع المهتم بها
+                    </h5>
+                    <p class="card-text text-secondary">
+                      موقع1
+                    </p>
                   </div>
                 </div>
                 <div class="card mt-3">
