@@ -73,7 +73,7 @@ include "./head.php";
                     </div>
                 
                     <div class="col-md-3 text-end text-light">
-                      <i class="far fa-heart" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%;"></i>
+                      <i class="fas fa-heart" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%;"></i>
                     </div>
                   </div>
 
@@ -119,7 +119,7 @@ include "./head.php";
                     </div>
                 
                     <div class="col-md-3 text-end text-light">
-                      <i class="far fa-heart" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%;"></i>
+                      <i class="fas fa-heart" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%;"></i>
                     </div>
                   </div>
 
@@ -163,7 +163,7 @@ include "./head.php";
                     </div>
                 
                     <div class="col-md-3 text-end text-light">
-                      <i class="far fa-heart" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%;"></i>
+                      <i class="fas fa-heart" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%;"></i>
                     </div>
                   </div>
 

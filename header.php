@@ -15,42 +15,38 @@
 
         <?php
             //echo $_SESSION['user_type'];
-            if(isset($_SESSION["user_type"])){
-            if($_SESSION["user_type"] == "user1"){
-                echo '
-                    <a href="./home.php" class="list-group-item list-group-item-action py-2 mt-3 text-secondary" data-mdb-ripple-init>
-                        <i class="fas fa-house fa-fw me-3"></i><span>الرئيسية</span>
-                    </a>';
-            }else
-            if($_SESSION["user_type"] == "user2"){
-                echo '
-                    <a href="./projects.php" class="list-group-item list-group-item-action py-2 mt-3 text-secondary" data-mdb-ripple-init>
-                        <i class="fas fa-briefcase fa-fw me-3"></i><span>مشاريعي</span>
-                    </a>
-                ';
-            }
-            }
-            ?>
+            if(isset($_SESSION["user_type"])) :
+            if($_SESSION["user_type"] == "user1") : ?>
+              <a href="./home.php" class="list-group-item list-group-item-action py-2 mt-3 text-secondary" data-mdb-ripple-init>
+                  <i class="fas fa-house fa-fw me-3"></i><span>الرئيسية</span>
+              </a>
+        <?php
+            elseif($_SESSION["user_type"] == "user2") : ?>
+              <a href="./projects.php" class="list-group-item list-group-item-action py-2 mt-3 text-secondary" data-mdb-ripple-init>
+                  <i class="fas fa-briefcase fa-fw me-3"></i><span>مشاريعي</span>
+              </a>
+                
+        <?php 
+            endif; 
+            endif; ?>
+        
 
         <?php
             //echo $_SESSION['user_type'];
-            if(isset($_SESSION["user_type"])){
-            if($_SESSION["user_type"] == "user1"){
-                echo '
-                    <a href="./favorite.php" class="list-group-item list-group-item-action py-2 text-secondary" data-mdb-ripple-init>
-                        <i class="far fa-heart fa-fw me-3"></i><span>المفضلة</span>
-                    </a>
-                ';
-            }else
-            if($_SESSION["user_type"] == "user2"){
-                echo '
-                    <a href="./Investors.php" class="list-group-item list-group-item-action py-2 text-secondary" data-mdb-ripple-init>
-                        <i class="fa-regular fa-circle-dollar fa-fw me-3"></i><span>المستثمرين</span>
-                    </a>
-                ';
-            }
-            }
-            ?>
+            if(isset($_SESSION["user_type"])) :
+              if($_SESSION["user_type"] == "user1") : ?>
+                <a href="./favorite.php" class="list-group-item list-group-item-action py-2 text-secondary" data-mdb-ripple-init>
+                    <i class="far fa-heart fa-fw me-3"></i><span>المفضلة</span>
+                </a>
+        <?php
+              elseif($_SESSION["user_type"] == "user2"): ?>
+                <a href="./Investors.php" class="list-group-item list-group-item-action py-2 text-secondary" data-mdb-ripple-init>
+                    <i class="fa-regular fa-circle-dollar fa-fw me-3"></i><span>المستثمرين</span>
+                </a>
+        <?php 
+            endif; 
+            endif; ?>
+            
           <a href="./profile.php" class="list-group-item list-group-item-action py-2 text-secondary"  data-mdb-ripple-init><i
               class="far fa-user fa-fw me-3"></i><span>الملف الشخصي</span></a>
           <a href="./chat.php" class="list-group-item list-group-item-action py-2 text-secondary" data-mdb-ripple-init><i 
