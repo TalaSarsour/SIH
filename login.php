@@ -30,13 +30,13 @@ include "./head.php";
                 <form action="./home.php" method="post">
 
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="email" id="typeEmailX-2" placeholder="ادخل البريد الالكتروني" class="form-control form-control-lg" required/>
-                    <label class="form-label" for="typeEmailX-2">البريد الالكتروني</label>
+                    <input type="email" id="Email" name="Email" placeholder="ادخل البريد الالكتروني" class="form-control form-control-lg" required/>
+                    <label class="form-label" for="Email">البريد الالكتروني</label>
                   </div>
       
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="password" id="typePasswordX-2" placeholder="كلمة المرور"  data-mdb-showcounter="true" maxlength="20" class="form-control form-control-lg" required/>
-                    <label class="form-label" for="typePasswordX-2">كلمة المرور</label>
+                    <input type="password" id="Password" name="Password" placeholder="كلمة المرور"  data-mdb-showcounter="true" maxlength="20" class="form-control form-control-lg" required/>
+                    <label class="form-label" for="Password">كلمة المرور</label>
                     <div class="form-helper"></div>
                   </div>
                   
