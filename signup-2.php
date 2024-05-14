@@ -322,7 +322,7 @@ include "./head.php";
                                   </div>
                                 </div>
                               </div>
-                              <div class="row ">
+                              <div class="row mb-2">
                             
                                 <div class="col-md-6">
                                   <div class="form-outline text-start mb-2">
@@ -366,7 +366,7 @@ include "./head.php";
                                 <div class="invalid-feedback">هذه الخانة مطلوبة</div>
 
                               </div>
-                              <div class="row ">
+                              <div class="row mb-2">
                                 <div class="col-md-6">
                                   <div data-mdb-input-init class="form-outline text-start mb-2">
                                     <input type="text" name="LinkedIn" id="LinkedIn" placeholder="لينكدان" class="form-control form-control-lg"/>
@@ -393,7 +393,9 @@ include "./head.php";
                               <span class="stepper-head-text">  </span>
                             </div>
                             <div class="stepper-content">
-                              <div class="row ">
+                              <?php
+                              if($_SESSION['user_type']=="user1") : ?> 
+                              <div class="row mb-2">
                                 <div class="col-md-6">
                                 <div class="form-outline mb-2">
                                   <label class="form-label text-dark" for="SelectInvestmentScope">نطاق الاستثمار<span class="text-danger">*</span></label>
@@ -436,7 +438,7 @@ include "./head.php";
                                 </div>
                               </div>
                             </div>
-                            <div class="row ">
+                            <div class="row mb-2">
                               <label class="form-label text-dark text-start">مراحل عمل الشركة</label>
           
                               <div class="text-start mb-2">
@@ -465,10 +467,59 @@ include "./head.php";
                                   <label class="form-check-label" for="inlineCheckbox6">قبل بدء العمل/البحث والتطوير</label>
                                 </div>
                               </div>
-          
+
+                              <?php elseif($_SESSION['user_type']=="user2") : ?>
+                                <div class="row mb-2">
+                                  <div class="col-md-6">
+                                  <div class="form-outline text-start mb-2">
+                                  <label class="form-label select-label text-dark" for="SelectLocation">أي المواقع تهمك؟<span class="text-danger">*</span></label>
+                                  <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="المواقع" class="form-select" name="SelectLocation" id="SelectLocation">
+                                    <option value="1">موقع 1</option>
+                                    <option value="2">موقع 2</option>
+                                    <option value="3">موقع 3</option>
+                                    <option value="4">موقع 4</option>
+                                    <option value="5">موقع 5</option>
+                                    <option value="6">موقع 6</option>
+                                    <option value="7">موقع 7</option>
+                                  </select>
+                                </div>      
+                                </div>
+                          
+                              <div class="col-md-6">
+                                <div class="form-outline text-start mb-2">
+                                  <label class="form-label select-label text-dark" for="SelectGrowthStrategy">ما هي استراتيجية النمو الخاص بك؟<span class="text-danger">*</span></label>
+                                  <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="المواقع" class="form-select" name="SelectGrowthStrategy" id="SelectGrowthStrategy">
+                                    <option value="1">موقع 1</option>
+                                    <option value="2">موقع 2</option>
+                                    <option value="3">موقع 3</option>
+                                    <option value="4">موقع 4</option>
+                                    <option value="5">موقع 5</option>
+                                    <option value="6">موقع 6</option>
+                                    <option value="7">موقع 7</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mb-2">
+                              <div class="form-outline text-start mb-2">
+                                  <label class="form-label select-label text-dark" for="SelectGrowthStrategy">الخبرة<span class="text-danger">*</span></label>
+                                  <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="الخبرة" class="form-select" name="SelectExperience" id="SelectExperience">
+                                    <option value="1">الخبرة 1</option>
+                                    <option value="2">الخبرة 2</option>
+                                    <option value="3">الخبرة 3</option>
+                                    <option value="4">الخبرة 4</option>
+                                    <option value="5">الخبرة 5</option>
+                                    <option value="6">الخبرة 6</option>
+                                    <option value="7">الخبرة 7</option>
+                                  </select>
+                                </div>
+                            </div>
+                              <?php endif; ?>
+                            <div class="row">
                               <label class="form-label text-dark text-start">أي من القطاعات الصناعية تهمك</label>
-          
+
                               <div class="text-start mb-2">
+
                                 <div class="form-check form-check-inline ">
                                   <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox1" value="option1" required/>
                                   <label class="form-check-label" for="2ndinlineCheckbox1">التعليم والتدريب</label>
@@ -545,7 +596,8 @@ include "./head.php";
                                   <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox19" value="option19" />
                                   <label class="form-check-label" for="2ndinlineCheckbox19">النقل</label>
                                 </div>
-                              </div>                              
+                              </div>  
+                            </div>                            
                               <!-- Buttons -->
                               <div class="d-flex justify-content-between">
                                 <button id="first-prev-step" class="btn btn-primary" data-mdb-ripple-init>
@@ -562,7 +614,7 @@ include "./head.php";
                               <span class="stepper-head-text">  </span>
                             </div>
                             <div class="stepper-content py-3">
-                              <div class="row ">
+                              <div class="row mb-2">
                                 <label class="form-label text-dark text-start">اللغات</label>
           
                                 <div class="text-start mb-2">

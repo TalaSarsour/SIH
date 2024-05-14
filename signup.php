@@ -30,25 +30,25 @@ include "./head.php";
                 <p class="text-secondary mb-4">أدخل المعلومات التالية لإنشاء حساب خاص بك</p>
                 <form class="needs-validation" action="" method="post">
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="text" id="typeNameX-2" placeholder="ادخل الاسم الكامل" class="form-control form-control-lg" required/>
-                    <label class="form-label" for="typeNameX-2">الاسم كامل</label>
+                    <input type="text" id="FullName" name="FullName" placeholder="ادخل الاسم الكامل" class="form-control form-control-lg" required/>
+                    <label class="form-label" for="FullName">الاسم كامل</label>
                   </div>
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="email" id="typeEmailX-2" placeholder="ادخل البريد الالكتروني" class="form-control form-control-lg" required/>
-                    <label class="form-label" for="typeEmailX-2">البريد الالكتروني</label>
+                    <input type="email" id="Email" name="Email" placeholder="ادخل البريد الالكتروني" class="form-control form-control-lg" required/>
+                    <label class="form-label" for="Email">البريد الالكتروني</label>
                   </div>
       
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="password" id="typePasswordX-2" placeholder="كلمة المرور"  data-mdb-showcounter="true" maxlength="20" class="form-control form-control-lg" required/>
-                    <label class="form-label" for="typePasswordX-2">كلمة المرور</label>
+                    <input type="password" id="Password" name="Password" placeholder="كلمة المرور"  data-mdb-showcounter="true" maxlength="20" class="form-control form-control-lg" required/>
+                    <label class="form-label" for="Password">كلمة المرور</label>
                     <div class="form-helper"></div>
                     <div class="invalid-feedback">كلمة المرور ضعيفة يجب ان تحتوي على ارقام  و احرف كبيرة@!$</div>
 
                   </div>
                   <!-- Checkbox -->
                   <div class="form-check d-flex justify-content-start mb-4">
-                    <input class="form-check-input" type="checkbox" value="" id="form1Example3" required />
-                    <label class="form-check-label" for="form1Example3"> اوافق على الشروط والاحكام </label>
+                    <input class="form-check-input" type="checkbox" value="" id="TermsAndConditions" required />
+                    <label class="form-check-label" for="TermsAndConditions"> اوافق على الشروط والاحكام </label>
                   </div>                  
       
                   <button data-mdb-ripple-init class="btn btn-primary btn-lg btn-block mb-4" type="submit">إنشاء حساب</button>

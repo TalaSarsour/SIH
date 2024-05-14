@@ -41,11 +41,11 @@ include "./head.php";
                   </div>
                   
                   <div class="d-flex justify-content-between align-items-center mb-4">
-                    <a href="#!" class="text-body">نسيت كلمة المرور ؟</a>
+                    <a href="./ResetPassword.php" class="text-body">نسيت كلمة المرور ؟</a>
                     <!-- Checkbox -->
                     <div class="form-check mb-0">
-                      <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                      <label class="form-check-label" for="form2Example3">
+                      <input class="form-check-input me-2" type="checkbox" value="" id="RememberME" />
+                      <label class="form-check-label" for="RememberME">
                         تذكرني
                       </label>
                     </div>
