@@ -640,9 +640,14 @@ include "./head.php";
                                     <label class="form-check-label" for="3rdinlineCheckbox5">الروسية</label>
                                   </div>
                                 </div>
-          
+                                <?php
+                                if($_SESSION['user_type']=="user1") : ?> 
+
                                 <label class="form-label text-dark text-start">أي نوع من المستثمرين أنت؟</label>
-          
+                                <?php elseif($_SESSION['user_type']=="user2") : ?>
+                                <label class="form-label text-dark text-start">أي نوع من المستثمرين تبحث عنه؟</label>
+                                <?php endif; ?>
+
                                 <div class="text-start mb-2">
                                   <div class="form-check form-check-inline ">
                                     <input class="form-check-input" type="checkbox" name="checkboxvar4[]" id="4thinlineCheckbox1" value="option1" required/>
