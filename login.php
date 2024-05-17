@@ -29,15 +29,22 @@ include "./head.php";
                 <p class="text-secondary mb-4">أدخل بريدك الإلكتروني وكلمة المرور للوصول إلى حسابك</p>
                 <form action="./home.php" method="post">
 
-                  <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="email" id="Email" name="Email" placeholder="ادخل البريد الالكتروني" class="form-control form-control-lg" required/>
-                    <label class="form-label" for="Email">البريد الالكتروني</label>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                      <input type="email" id="Email" name="Email" placeholder="ادخل البريد الالكتروني" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="Email">البريد الالكتروني</label>
+                    </div>
                   </div>
-      
-                  <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="password" id="Password" name="Password" placeholder="كلمة المرور"  data-mdb-showcounter="true" maxlength="20" class="form-control form-control-lg" required/>
-                    <label class="form-label" for="Password">كلمة المرور</label>
-                    <div class="form-helper"></div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                      <input type="password" id="Password" name="Password" placeholder="كلمة المرور"  data-mdb-showcounter="true" maxlength="20" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="Password">كلمة المرور</label>
+                      <div class="form-helper"></div>
+                      <div class="invalid-feedback">كلمة المرور ضعيفة يجب ان تحتوي على ارقام  و احرف كبيرة@!$</div>
+                    </div>
                   </div>
                   
                   <div class="d-flex justify-content-between align-items-center mb-4">

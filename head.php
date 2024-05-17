@@ -1,3 +1,7 @@
+<?php
+include './connection.inc.php';
+
+?>
 <!--<html lang="en">-->
     <html lang="ar" dir="rtl">
 <head>
@@ -47,6 +51,7 @@
 
     <!-- MDB PLUGINS -->
     <link rel="stylesheet" href="./assets/plugins/css/all.min.css"/>
+    
     <!--
     <link rel="stylesheet" href="./pages/landingPage.css"/>
     <link href="https://cdn.jsdelivr.net/npm/nouislider@16.8.0/distribute/nouislider.min.css" rel="stylesheet">

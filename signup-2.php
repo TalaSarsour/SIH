@@ -49,6 +49,55 @@ include "./head.php";
                                   <div class="form-outline text-start mb-2">
                                     <label class="form-label select-label text-dark" for="SelectCountry">الدولة<span class="text-danger">*</span></label>
                                     <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="الدولة" class="form-select" name="SelectCountry" id="SelectCountry" required>
+                                    <?php
+/*
+                                      // Database connection details (replace with your actual details)
+                                      $servername = "localhost";
+                                      $username = "root";
+                                      $password = "root";
+                                      $dbname = "sih";
+
+                                      // Create connection
+                                      $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+                                      // Check connection
+                                      if (!$conn) {
+                                        die("Connection failed: " . mysqli_connect_error());
+                                      }
+*/
+                                      // Define your table and column names (change as needed)
+                                      $Country = "countries";
+                                      $Country_ID = "id";
+                                      $Country_Name = "native";
+
+                                      // Write the SQL query
+                                      $sql = "SELECT $Country_ID, $Country_Name FROM $Country ORDER BY $Country_Name ASC";
+                                      $result = mysqli_query($conn, $sql);
+
+                                      // Check query execution
+                                      if (mysqli_num_rows($result) > 0) {
+                                       // echo "<select>";
+                                        
+                                        // Loop through each row in the result
+                                        while($row = mysqli_fetch_assoc($result)) {
+                                          $value = $row[$Country_ID];
+                                          $text = $row[$Country_Name];
+                                          
+                                          // Display option element with value and text
+                                          echo "<option value='$value'>$text</option>";
+                                        }
+                                        
+                                        echo "</select>";
+                                      } else {
+                                        echo "No records found";
+                                      }
+
+                                      // Close connection
+                                      //mysqli_close($conn);
+
+                                      ?>
+
+                                      <!--
                                       <option value="Afghanistan">Afghanistan</option>
                                       <option value="Åland Islands">Åland Islands</option>
                                       <option value="Albania">Albania</option>
@@ -293,14 +342,82 @@ include "./head.php";
                                       <option value="Yemen">Yemen</option>
                                       <option value="Zambia">Zambia</option>
                                       <option value="Zimbabwe">Zimbabwe</option>
-                                    </select>
+
+                                    </select>-->
                                   </div>
+                                  <input type="hidden" id="selected-value" name="selected-value">
+
                                 </div>
-                            
                                 <div class="col-md-6">
                                   <div class="form-outline text-start mb-2">
                                     <label class="form-label select-label text-dark" for="SelectCity">المدينة<span class="text-danger">*</span></label>
                                     <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="المدينة" class="form-select" name="SelectCity" id="SelectCity" required>
+                                    <?php
+                                    /*
+                                    if (isset($_POST["SelectCountry"])) {
+                                      $Search_City_ID = $_POST["SelectCountry"];
+                                    }
+                                    if (isset($_POST["selected-value"])) {
+                                      $selected_value = $_POST["selected-value"];
+                                    }
+                                    $selected_value = $_POST["selected-value"];
+
+                                    echo '                            <script>alert("id = "'.$Search_City_ID.'");</script>
+                                    ';
+                                    echo "select = ".$Search_City_ID;
+*/
+
+
+                                   // $Search_City_ID = $_POST["SelectCountry"];
+/*
+                                      // Database connection details (replace with your actual details)
+                                      $servername = "localhost";
+                                      $username = "root";
+                                      $password = "root";
+                                      $dbname = "sih";
+
+                                      // Create connection
+                                      $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+                                      // Check connection
+                                      if (!$conn) {
+                                        die("Connection failed: " . mysqli_connect_error());
+                                      }
+                                      // Define your table and column names (change as needed)
+                                      $City = "states";
+                                      $City_ID = "id";
+                                      $Country_ID = "country_id";
+                                      $City_Name = "name_ar";
+
+
+                                      // Write the SQL query
+                                      $sql2 = "SELECT $City_ID, $City_Name FROM $City WHERE $Country_ID LIKE '1' ORDER BY $City_Name ASC";
+                                      $result = mysqli_query($conn, $sql2);
+
+                                      // Check query execution
+                                      if (mysqli_num_rows($result) > 0) {
+                                       // echo "<select>";
+                                        
+                                        // Loop through each row in the result
+                                        while($row = mysqli_fetch_assoc($result)) {
+                                          $value = $row[$City_ID];
+                                          $text = $row[$City_Name];
+                                          
+                                          // Display option element with value and text
+                                          echo "<option value='$value'>$text</option>";
+                                        }
+                                        
+                                        echo "</select>";
+                                      } else {
+                                        echo "No records found";
+                                      }
+
+                                      // Close connection
+                                      mysqli_close($conn);
+                                      */
+
+                                      ?>
+                                      <!--
                                     <option value="East Jerusalem">East Jerusalem</option>
                                     <option value="Hebron">Hebron</option>
                                     <option value="Nablus">Nablus</option>
@@ -340,13 +457,23 @@ include "./head.php";
                                 </div>
                             
                                 <div class="col-md-6">
-                                  <div class="form-outline text-start mb-2">
+                                  <div class="text-start mt-2">
+
+                                <label class="form-label text-dark" for="SelectExpYears">سنوات الخبرة<span class="text-danger">*</span></label>
+
+                                  <div class="form-outline text-start mb-2" data-mdb-input-init>
+                                    <input type="number" id="SelectExpYears" name="SelectExpYears" class="form-control" value="1"/>
+                                  </div>
+                                </div>
+<!--
+                                    <div class="form-outline text-start mb-2">
+
                                     <label class="form-label select-label text-dark" for="SelectExpYears">سنوات الخبرة<span class="text-danger">*</span></label>
                                     <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="سنوات الخبرة" class="form-select" name="SelectExpYears" id="SelectExpYears" required>
-                                    <?php 
+                                    <?php /*
                                         for ($i = 1; $i <= 10; $i++) {
-                                          echo '<option value="'.$i.'">'.$i.'</option>';
-                                        }
+                                          echo '<option value="'.$i.'">'.$i.'سنوات</option>';
+                                        }*/
                                       ?>  
                                     <!--
                                       <option value="1">1</option>
@@ -355,9 +482,9 @@ include "./head.php";
                                       <option value="4">4</option>
                                       <option value="5">5</option>
                                       <option value="6">6</option>
-                                      <option value="7">7</option>-->
+                                      <option value="7">7</option>
                                     </select>
-                                  </div>
+                                  </div>-->
                                 </div>
                               </div>
                               <div class="form-outline text-start mb-4" data-mdb-input-init >
@@ -368,18 +495,24 @@ include "./head.php";
                               </div>
                               <div class="row mb-2">
                                 <div class="col-md-6">
-                                  <div data-mdb-input-init class="form-outline text-start mb-2">
-                                    <input type="text" name="LinkedIn" id="LinkedIn" placeholder="لينكدان" class="form-control form-control-lg"/>
-                                    <label class="form-label" for="LinkedIn">لينكدان</label>
+                                  <div class="d-flex flex-row align-items-center">
+                                    <i class="fa-brands fa-linkedin fa-lg me-3 fa-fw"></i>
+                                    <div data-mdb-input-init class="form-outline text-start mb-2">
+                                      <input type="text" name="LinkedIn" id="LinkedIn" placeholder="لينكدان" class="form-control form-control-lg"/>
+                                      <label class="form-label" for="LinkedIn">لينكدان</label>
+                                    </div>
                                   </div>
                                 </div>
                                 <div class="col-md-6">
-                                  <div data-mdb-input-init class="form-outline text-start mb-2">
-                                    <input type="text" name="Facebook" id="Facebook" placeholder="فيس بوك" class="form-control form-control-lg"/>
-                                    <label class="form-label" for="Facebook">فيس بوك</label>
+                                  <div class="d-flex flex-row align-items-center">
+                                    <i class="fa-brands fa-facebook-f fa-lg me-3 fa-fw"></i>
+                                    <div data-mdb-input-init class="form-outline flex-fill text-start mb-2">
+                                      <input type="text" name="Facebook" id="Facebook" placeholder="فيس بوك" class="form-control form-control-lg"/>
+                                      <label class="form-label" for="Facebook">فيس بوك</label>
                                   </div>
                                 </div>
-                              </div>                              
+                              </div>  
+                              </div>                            
                               <!-- Buttons -->
                               <div class="d-flex justify-content-end pt-2">
                                 <button id="first-next-step" class="btn btn-primary" data-mdb-ripple-init>التالي</button>
@@ -396,6 +529,7 @@ include "./head.php";
                               <?php
                               if($_SESSION['user_type']=="user1") : ?> 
                               <div class="row mb-2">
+                              <div class="multi-range-slider" data-mdb-multi-range-slider-init></div>
                                 <div class="col-md-6">
                                 <div class="form-outline mb-2">
                                   <label class="form-label text-dark" for="SelectInvestmentScope">نطاق الاستثمار<span class="text-danger">*</span></label>
@@ -1016,10 +1150,15 @@ include "./head.php";
                   </div>
 
                   <?php
+
                   if (isset($_POST['SelectInvestmentScope'])) 
                   {
                     echo "range = ";
                       echo($_POST['SelectInvestmentScope']); 
+                  }
+                  if (isset($_POST['SelectExpYears'])){
+                    $SelectExpYears = $_POST['SelectExpYears'];
+                    echo "SelectExpYears = ".$SelectExpYears;
                   }
                   
                     //echo $_SESSION['user_type'];
@@ -1064,5 +1203,61 @@ include "./head.php";
 <?php
 include "./script-umd.php"; 
 ?>
+<script>
+  /*
+  const selectElement = document.getElementById('SelectCountry');
+  const selectedValueSpan = document.getElementById('selected-value'); // Optional for displaying value
+  //alert("select span = ".$selectedValueSpan);
 
+  selectElement.addEventListener('change', (event) => {
+    const selectedValue = event.target.value;
+
+    console.log('Selected value:', selectedValue);
+    selectedValueSpan.value = selectedValue;
+*/
+    //alert("select = ".$selectedValue);
+
+    // Optional: Update a span element with the selected value
+    /*
+    if (selectedValueSpan) {
+      selectedValueSpan.textContent = `Selected value: ${selectedValue}`;
+    }*/
+ // });
+    //alert(document.getElementById("SelectCountry").value);
+  </script>
+<script>
+    // County State
+
+    $('#SelectCountry').on('change', function() {
+        var country_id = this.value;
+         console.log(country_id);
+        $.ajax({
+            url: './assets/ajax/state.php',
+            type: "POST",
+            data: {
+                country_data: country_id
+            },
+            success: function(result) {
+                $('#SelectCity').html(result);
+                 //console.log(result);
+            }
+        })
+    });
+    // state city
+    $('#SelectState').on('change', function() {
+        var state_id = this.value;
+         console.log(country_id);
+        $.ajax({
+            url: './assets/ajax/city.php',
+            type: "POST",
+            data: {
+                state_data: state_id
+            },
+            success: function(data) {
+                $('#city').html(data);
+                // console.log(data);
+            }
+        })
+    });
+</script>
 </html>
