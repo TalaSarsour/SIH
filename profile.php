@@ -585,7 +585,45 @@ include "./head.php";
                       </div>
                   
                       <div class="col-md-4 text-end">
-                      <button type="button" class="btn btn-outline-secondary text-dark btn-sm" ><i class="fas fa-pen"></i></button>
+                        <button type="button" class="btn btn-outline-secondary text-dark btn-sm" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#Edit_About_Me_Modal"><i class="fas fa-pen"></i></button>
+                        <!-- Button trigger modal -->
+
+                        <!-- Modal -->
+                        <div
+                          class="modal fade"
+                          id="Edit_About_Me_Modal"
+                          data-mdb-backdrop="static"
+                          data-mdb-keyboard="false"
+                          tabindex="-1"
+                          aria-labelledby="Edit_About_Me_Modal_Label"
+                          aria-hidden="true"
+                        >
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title modal-dialog-centered fw-bold text-center" style="text-align: center;" id="staticBackdropLabel">إعادة تعين كلمة المرور</h5>
+                                <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <form class="needs-validation"  method="post">
+                                <div class="form-outline text-start mb-4" data-mdb-input-init >
+                                        <label class="form-label text-dark" for="NewAboutMe">نبذة عني<span class="text-danger">*</span></label>
+                                        <textarea class="form-control" name="NewAboutMe" id="NewAboutMe" placeholder="نبذة عني" rows="2" required></textarea>
+                                        <div class="invalid-feedback">هذه الخانة مطلوبة</div>
+
+                                      </div>
+                                  <div class="text-center">
+                                    <button type="submit" class="btn btn-primary" data-mdb-ripple-init>حفظ</button>
+                                  </div>
+
+                                  </form>
+                              </div>
+                              <div class="modal-footer">
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <!--
