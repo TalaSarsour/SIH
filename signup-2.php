@@ -427,13 +427,19 @@ include "./head.php";
                                 <div class="form-outline text-start mb-2">
                                   <label class="form-label select-label text-dark" for="SelectLocation">أي المواقع تهمك؟<span class="text-danger">*</span></label>
                                   <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="المواقع" class="form-select" name="SelectLocation" id="SelectLocation">
-                                    <option value="1">موقع 1</option>
-                                    <option value="2">موقع 2</option>
-                                    <option value="3">موقع 3</option>
-                                    <option value="4">موقع 4</option>
-                                    <option value="5">موقع 5</option>
-                                    <option value="6">موقع 6</option>
-                                    <option value="7">موقع 7</option>
+                                    <option value="1">الإمارات</option>
+                                    <option value="2">البحرين</option>
+                                    <option value="3">مصر</option>
+                                    <option value="4">إيران</option>
+                                    <option value="5">الأردن</option>
+                                    <option value="6">الكويت</option>
+                                    <option value="7">لبنان</option>
+                                    <option value="8">عُمان</option>
+                                    <option value="9" selected>فلسطين</option>
+                                    <option value="10">قطر</option>
+                                    <option value="11">السعودية</option>
+                                    <option value="12">سوريا</option>
+                                    <option value="13">اليمن</option>
                                   </select>
                                 </div>
                               </div>
@@ -474,13 +480,19 @@ include "./head.php";
                                   <div class="form-outline text-start mb-2">
                                   <label class="form-label select-label text-dark" for="SelectLocation">أي المواقع تهمك؟<span class="text-danger">*</span></label>
                                   <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="المواقع" class="form-select" name="SelectLocation" id="SelectLocation">
-                                    <option value="1">موقع 1</option>
-                                    <option value="2">موقع 2</option>
-                                    <option value="3">موقع 3</option>
-                                    <option value="4">موقع 4</option>
-                                    <option value="5">موقع 5</option>
-                                    <option value="6">موقع 6</option>
-                                    <option value="7">موقع 7</option>
+                                    <option value="1">الإمارات</option>
+                                    <option value="2">البحرين</option>
+                                    <option value="3">مصر</option>
+                                    <option value="4">إيران</option>
+                                    <option value="5">الأردن</option>
+                                    <option value="6">الكويت</option>
+                                    <option value="7">لبنان</option>
+                                    <option value="8">عُمان</option>
+                                    <option value="9" selected>فلسطين</option>
+                                    <option value="10">قطر</option>
+                                    <option value="11">السعودية</option>
+                                    <option value="12">سوريا</option>
+                                    <option value="13">اليمن</option>
                                   </select>
                                 </div>      
                                 </div>
@@ -489,28 +501,23 @@ include "./head.php";
                                 <div class="form-outline text-start mb-2">
                                   <label class="form-label select-label text-dark" for="SelectGrowthStrategy">ما هي استراتيجية النمو الخاص بك؟<span class="text-danger">*</span></label>
                                   <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="المواقع" class="form-select" name="SelectGrowthStrategy" id="SelectGrowthStrategy">
-                                    <option value="1">موقع 1</option>
-                                    <option value="2">موقع 2</option>
-                                    <option value="3">موقع 3</option>
-                                    <option value="4">موقع 4</option>
-                                    <option value="5">موقع 5</option>
-                                    <option value="6">موقع 6</option>
-                                    <option value="7">موقع 7</option>
+                                    <option value="1">تمويل بدء العمل (الشركات الناشئة)</option>
+                                    <option value="2">التوسع الجغرافي</option>
+                                    <option value="3">تطوير منتجات جديدة</option>
+                                    <option value="4">توسيع قاعدة العملاء</option>
+                                    <option value="5">استحواذ على شركات أخرى</option>
+                                    <option value="6">غير ذلك</option>
                                   </select>
                                 </div>
                               </div>
                             </div>
                             <div class="row mb-2">
                               <div class="form-outline text-start mb-2">
-                                  <label class="form-label select-label text-dark" for="SelectGrowthStrategy">الخبرة<span class="text-danger">*</span></label>
+                                  <label class="form-label select-label text-dark" for="SelectGrowthStrategy">ما هي خبرتك في مجال ريادة الأعمال؟<span class="text-danger">*</span></label>
                                   <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="الخبرة" class="form-select" name="SelectExperience" id="SelectExperience">
-                                    <option value="1">الخبرة 1</option>
-                                    <option value="2">الخبرة 2</option>
-                                    <option value="3">الخبرة 3</option>
-                                    <option value="4">الخبرة 4</option>
-                                    <option value="5">الخبرة 5</option>
-                                    <option value="6">الخبرة 6</option>
-                                    <option value="7">الخبرة 7</option>
+                                    <option value="1">مبتدئ</option>
+                                    <option value="2">متوسط</option>
+                                    <option value="3">متقدم</option>
                                   </select>
                                 </div>
                             </div>
@@ -550,7 +557,7 @@ include "./head.php";
                                 </div>
                                 <div class="form-check form-check-inline">
                                   <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox8" value="option8" />
-                                  <label class="form-check-label" for="2ndinlineCheckbox8">الضيافة، المطاعم والحانات</label>
+                                  <label class="form-check-label" for="2ndinlineCheckbox8">الضيافة، المطاعم</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                   <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox9" value="option9" />
@@ -890,7 +897,7 @@ include "./head.php";
                       </div>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox8" value="option8" />
-                        <label class="form-check-label" for="2ndinlineCheckbox8">الضيافة، المطاعم والحانات</label>
+                        <label class="form-check-label" for="2ndinlineCheckbox8">الضيافة، المطاعم</label>
                       </div>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox9" value="option9" />

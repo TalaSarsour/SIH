@@ -601,7 +601,7 @@ include "./head.php";
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title modal-dialog-centered fw-bold text-center" style="text-align: center;" id="staticBackdropLabel">إعادة تعين كلمة المرور</h5>
+                                <h5 class="modal-title modal-dialog-centered fw-bold text-center" style="text-align: center;" id="staticBackdropLabel">تحديث المعلومات</h5>
                                 <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
@@ -634,7 +634,6 @@ include "./head.php";
                       أخذ مساعدة الناس على التعبير عن أنفسهم من خلال ملابسهم، من خلال توفير الإرشادات والإرشادات حول كيفية اختيار المسؤول الرئيسي ومظهرهم.
                       بفضل ما تمتلكه من عالم ما بعدي، أتمكن من معرفة الاتجاهات الحالية والحديثة لمصممي الأزياء العالمية، مما يمكنني من تقديم نصائح فعالة وإلهامية للأشخاص الذين يرغبون في التميز في أسلوبهم الشخصي.
                     </p>
-
                   </div>
                 </div>
                 <div class="card mt-3">
@@ -646,7 +645,69 @@ include "./head.php";
                         </h5>
                       </div>
                       <div class="col-md-4 text-end">
-                        <button type="button" class="btn btn-outline-secondary text-dark btn-sm" ><i class="fas fa-pen"></i></button>
+                        <button type="button" class="btn btn-outline-secondary text-dark btn-sm" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#Edit_AreasOfExp_Modal"><i class="fas fa-pen"></i></button>
+                        <!-- Button trigger modal -->
+
+                        <!-- Modal -->
+                        <div
+                          class="modal fade"
+                          id="Edit_AreasOfExp_Modal"
+                          data-mdb-backdrop="static"
+                          data-mdb-keyboard="false"
+                          tabindex="-1"
+                          aria-labelledby="Edit_AreasOfExp_Modal_Label"
+                          aria-hidden="true"
+                        >
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title modal-dialog-centered fw-bold text-center" style="text-align: center;" id="staticBackdropLabel">تحديث المعلومات</h5>
+                                <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <form class="needs-validation"  method="post">
+                                  <div class="form-outline text-start mb-2">
+                                      <label class="form-label select-label text-dark" for="NewSelectAreasOfExp">مجالات الخبرة<span class="text-danger">*</span></label>
+                                      <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="مجالات الخبرة" class="form-select" name="NewSelectAreasOfExp" id="SelectAreasOfExp" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                      </select>
+                                  </div>
+                                  <div class="form-outline text-start mb-2">
+                                    <label class="form-label select-label text-dark" for="SelectExpYears">سنوات الخبرة<span class="text-danger">*</span></label>
+                                    <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="سنوات الخبرة" class="form-select" name="SelectExpYears" id="SelectExpYears" required>
+                                    <?php 
+                                        for ($i = 1; $i <= 10; $i++) {
+                                          echo '<option value="'.$i.'">'.$i.'</option>';
+                                        }
+                                      ?>  
+                                    <!--
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                      <option value="7">7</option>-->
+                                    </select>
+                                  </div>
+                                  <div class="text-center">
+                                    <button type="submit" class="btn btn-primary" data-mdb-ripple-init>حفظ</button>
+                                  </div>
+
+                                  </form>
+                              </div>
+                              <div class="modal-footer">
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <p class="card-text text-secondary">
@@ -669,7 +730,139 @@ include "./head.php";
                         </h5>
                       </div>
                       <div class="col-md-4 text-end">
-                        <button type="button" class="btn btn-outline-secondary text-dark btn-sm" ><i class="fas fa-pen"></i></button>
+                      <button type="button" class="btn btn-outline-secondary text-dark btn-sm" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#Edit_Sectors_Interested_Modal"><i class="fas fa-pen"></i></button>
+                        <!-- Button trigger modal -->
+
+                        <!-- Modal -->
+                        <div
+                          class="modal fade"
+                          id="Edit_Sectors_Interested_Modal"
+                          data-mdb-backdrop="static"
+                          data-mdb-keyboard="false"
+                          tabindex="-1"
+                          aria-labelledby="Edit_Sectors_Interested_Modal_Label"
+                          aria-hidden="true"
+                        >
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title modal-dialog-centered fw-bold text-center" style="text-align: center;" id="staticBackdropLabel">تحديث المعلومات</h5>
+                                <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <form class="needs-validation"  method="post">
+                                  <div class="text-start mb-2">
+                                    <label class="form-label text-dark">أي من القطاعات الصناعية تهمك</label>
+                                  </div>
+                                  <div class="text-start mb-2">
+
+                                    <div class="form-check form-check-inline ">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox1" value="option1" required/>
+                                      <label class="form-check-label" for="2ndinlineCheckbox1">التعليم والتدريب</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox2" value="option2" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox2">الزراعة</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox3" value="option3" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox3">خدمات الأعمال</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox4" value="option4" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox4">الطاقة والموارد الطبيعية</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox5" value="option5" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox5">الترفيه والتسلية</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox6" value="option6" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox6">الشؤون المالية</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox7" value="option7" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox7">الطعام والمشروبات</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox8" value="option8" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox8">الضيافة، المطاعم والحانات</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox9" value="option9" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox9">التصنيع والهندسة</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox10" value="option10" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox10">الإعلام</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox11" value="option11" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox11">الطب والعلوم</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox12" value="option12" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox12">الخدمات الشخصية</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox13" value="option13" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox13">المنتجات والاختراعات</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox14" value="option14" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox14">العقارات</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox15" value="option15" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox15">التجزئة</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox16" value="option16" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox16">المبيعات والتسويق</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox17" value="option17" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox17">البرمجيات</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox18" value="option18" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox18">التكنولوجيا</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar2[]" id="2ndinlineCheckbox19" value="option19" />
+                                      <label class="form-check-label" for="2ndinlineCheckbox19">النقل</label>
+                                    </div>
+                                  </div>  
+                                  <div class="form-outline text-start mb-2">
+                                    <label class="form-label select-label text-dark" for="SelectLocation">أي المواقع تهمك؟<span class="text-danger">*</span></label>
+                                    <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="المواقع" class="form-select" name="SelectLocation" id="SelectLocation">
+                                      <option value="1">الإمارات</option>
+                                      <option value="2">البحرين</option>
+                                      <option value="3">مصر</option>
+                                      <option value="4">إيران</option>
+                                      <option value="5">الأردن</option>
+                                      <option value="6">الكويت</option>
+                                      <option value="7">لبنان</option>
+                                      <option value="8">عُمان</option>
+                                      <option value="9" selected>فلسطين</option>
+                                      <option value="10">قطر</option>
+                                      <option value="11">السعودية</option>
+                                      <option value="12">سوريا</option>
+                                      <option value="13">اليمن</option>
+                                    </select>
+                                  </div>  
+                                  <div class="text-center">
+                                    <button type="submit" class="btn btn-primary" data-mdb-ripple-init>حفظ</button>
+                                  </div>
+
+                                  </form>
+                              </div>
+                              <div class="modal-footer">
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div class="d-flex flex-row justify-content-start align-items-start">
@@ -697,7 +890,66 @@ include "./head.php";
                         </h5>
                       </div>
                       <div class="col-md-4 text-end">
-                        <button type="button" class="btn btn-outline-secondary text-dark btn-sm" ><i class="fas fa-pen"></i></button>
+                      <button type="button" class="btn btn-outline-secondary text-dark btn-sm" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#Edit_Languages_Modal"><i class="fas fa-pen"></i></button>
+                        <!-- Button trigger modal -->
+
+                        <!-- Modal -->
+                        <div
+                          class="modal fade"
+                          id="Edit_Languages_Modal"
+                          data-mdb-backdrop="static"
+                          data-mdb-keyboard="false"
+                          tabindex="-1"
+                          aria-labelledby="Edit_Languages_Modal_Label"
+                          aria-hidden="true"
+                        >
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title modal-dialog-centered fw-bold text-center" style="text-align: center;" id="staticBackdropLabel">تحديث المعلومات</h5>
+                                <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <form class="needs-validation"  method="post">
+                                  <div class="text-start mb-2">
+                                    <label class="form-label text-dark">أي من اللغات التالية تهمك</label>
+                                  </div>
+          
+                                  <div class="text-start mb-2">
+                                    
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar3[]" id="3rdinlineCheckbox1" value="Arabic" required/>
+                                      <label class="form-check-label" for="3rdinlineCheckbox1">العربية</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar3[]" id="3rdinlineCheckbox2" value="English" />
+                                      <label class="form-check-label" for="3rdinlineCheckbox2">الإنجليزية</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar3[]" id="3rdinlineCheckbox3" value="French" />
+                                      <label class="form-check-label" for="3rdinlineCheckbo3">الفرنسية</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar3[]" id="3rdinlineCheckbox4" value="Italian" />
+                                      <label class="form-check-label" for="3rdinlineCheckbox4">الإيطالية</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="checkbox" name="checkboxvar3[]" id="3rdinlineCheckbox5" value="Russian" />
+                                      <label class="form-check-label" for="3rdinlineCheckbox5">الروسية</label>
+                                    </div>
+                                  </div>
+                                  <div class="text-center">
+                                    <button type="submit" class="btn btn-primary" data-mdb-ripple-init>حفظ</button>
+                                  </div>
+
+                                  </form>
+                              </div>
+                              <div class="modal-footer">
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <p class="card-text text-secondary">
