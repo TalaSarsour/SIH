@@ -4,8 +4,22 @@
 $title = "Social Investment Hub (SIH)";
 
 include "./head.php";
-?>
+//echo '<script alert( "'.$_SESSION['user_type'].'");"</script>';
 
+if (isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'user1') {
+  header("Location: ./home.php");
+}
+else{
+  if (isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'user2') {
+    header("Location: ./projects.php");
+  }
+}
+?>
+  <script>
+
+    alert(" user type : <?php echo $_SESSION['user_type']; ?>"); // Inject PHP variable into JS
+
+  </script>
 <body>
 <header>
   <!-- Intro settings -->

@@ -1,6 +1,28 @@
 <?php
 include './connection.inc.php';
+if (session_status() === PHP_SESSION_NONE) {
+  //header("Location: ./index.php");
 
+  session_start();
+}/*else{
+  //header("Location: ./index.php");
+
+}
+if (!isset($_SESSION['user_type'])) {
+  //header("location: ./index.php");
+  //exit;
+
+}
+//$currentPageURL = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+//echo '<script>alert("this page is'.$currentPageURL.' ");</script>';
+
+/*
+if (isset($_SESSION['user_type']) == 'user1') {
+  header("Location: home.php");
+}elseif (isset($_SESSION['user_type']) == 'user2') {
+  header("Location: projects.php");
+}*/
 ?>
 <!--<html lang="en">-->
     <html lang="ar" dir="rtl">

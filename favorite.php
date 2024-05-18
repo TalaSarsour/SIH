@@ -4,6 +4,8 @@
 $title = "المفضلة";
 
 include "./head.php";
+include "./session.php";
+
 ?>
 <head>
     <link rel="stylesheet" href="./assets/css/Custom/home.css"/>

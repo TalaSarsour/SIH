@@ -81,6 +81,7 @@ include "./head.php";
                   if (isset($_POST['submit'])){
                    if(isset($_POST['user-type'])){
                     $user_type = $_POST['user-type'];
+                    
                     $host  = $_SERVER['HTTP_HOST'];
                     $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
                     $user1 = 'signup1.php';
@@ -89,9 +90,7 @@ include "./head.php";
                     $location1 = 'http://'.$host.$uri.'/'.$user1;
                     $location2 = 'http://'.$host.$uri.'/'.$user2;
                     $location = 'http://'.$host.$uri.'/'.$signup;
-
-
-
+                    
                     if($user_type == 'user1'){
                       $_SESSION['user_type'] = $user_type;
                       echo '<script type="text/javascript">window.location.href = "'.$location.'"</script>';

@@ -63,6 +63,7 @@ include "./head.php";
                       <div class="invalid-feedback">كلمة المرور ضعيفة يجب ان تحتوي على ارقام  و احرف كبيرة@!$</div>
                     </div>
                   </div>
+                  <!--
                   <div class="row">
                     <div class="col-md-6 text-start">
                       <div class="d-flex flex-row align-items-center mb-4">
@@ -92,7 +93,7 @@ include "./head.php";
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div>-->
                   <!-- Checkbox -->
                   <div class="form-check d-flex justify-content-start mb-3">
                     <input class="form-check-input" type="checkbox" value="" id="TermsAndConditions" required />

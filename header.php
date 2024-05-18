@@ -1,8 +1,12 @@
- <?php
-if (session_status() === PHP_SESSION_NONE) {
-  session_start();
-} ?>
- <!--Main Navigation-->
+<?
+/*if (!isset($_SESSION['user_type'])) {
+  header("location: ./index.php");
+  exit;
+
+}*/
+
+?>
+<!--Main Navigation-->
   <header>
     <!-- Sidebar -->
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
@@ -53,8 +57,9 @@ if (session_status() === PHP_SESSION_NONE) {
           <a href="./chat.php" class="list-group-item list-group-item-action py-2 text-secondary" data-mdb-ripple-init><i 
               class="fa-light fa-message-dots me-3"></i><span>الدردشة</span>
           </a>
+          <!--
           <a href="./sign-out.php" class="list-group-item list-group-item-action py-2 text-secondary sign-out" data-mdb-ripple-init><i
-              class="fas fa-arrow-right-from-bracket fa-fw me-3"></i><span>تسجيل خروج</span></a>
+              class="fas fa-arrow-right-from-bracket fa-fw me-3"></i><span>تسجيل خروج</span></a>-->
 
          </div>
 
@@ -110,7 +115,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="./profile.php">تحديث الملف الشخصي</a></li>
               <li><a class="dropdown-item" href="#">اعدادات الحساب</a></li>
-              <li><a class="dropdown-item" href="#">تسجيل الخروج</a></li>
+              <li><a class="dropdown-item" href="./sign-out.php">تسجيل الخروج</a></li>
             </ul>
           </li>
         </ul>

@@ -2,8 +2,10 @@
 <?php
 //session_start();
 $title = "الملف الشخصي";
-
 include "./head.php";
+
+include "./session.php";
+
 ?>
 <head>
     <link rel="stylesheet" href="./assets/css/Custom/home.css"/>
@@ -565,59 +567,141 @@ include "./head.php";
                                       <option value="7">7</option>-->
                                     <!--</select>
                                   </div>-->
-                                  <p class="text-dark mt-2">نطاق الاستثمار : <span class="text-secondary">12000$</span></p>
-                                  <div class="form-outline mb-2">
-                                  <label class="form-label text-dark" for="SelectInvestmentScope">نطاق الاستثمار<span class="text-danger">*</span></label>
+                                  <?php
+                                    if($_SESSION['user_type']=="user1") : ?> 
+                                      <p class="text-dark mt-2">مراحل عمل الشركة : <span class="text-secondary">ربحية</span></p>
+                                      <div class="text-start mb-2">
+                                        <div class="form-check form-check-inline ">
+                                          <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox1" value="option1" required />
+                                          <label class="form-check-label" for="inlineCheckbox1">منتج النموذج الأولي/المنتج النهائي</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox2" value="option2" />
+                                          <label class="form-check-label" for="inlineCheckbox2">غير ذلك</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox3" value="option3" />
+                                          <label class="form-check-label" for="inlineCheckbox3">الربحية</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox4" value="option4" />
+                                          <label class="form-check-label" for="inlineCheckbox4">التحقيق في الربح</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox5" value="option5" />
+                                          <label class="form-check-label" for="inlineCheckbox5">تحقيق المبيعات</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox6" value="option6" />
+                                          <label class="form-check-label" for="inlineCheckbox6">قبل بدء العمل/البحث والتطوير</label>
+                                        </div>
+                                      </div>
+                                    <?php elseif($_SESSION['user_type']=="user2") : ?>
 
-                                  <div class="mt-3 multi-range-slider multi-ranges-basic" name="SelectInvestmentScope" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]"></div>
+                                      <div class="row mb-2">
+                                        <div class="col-md-6">
+                                            <div class="form-outline text-start mb-2">
+                                              <label class="form-label select-label text-dark" for="SelectGrowthStrategy">ما هي استراتيجية النمو الخاص بك؟<span class="text-danger">*</span></label>
+                                              <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="المواقع" class="form-select" name="SelectGrowthStrategy" id="SelectGrowthStrategy">
+                                                <option value="1">تمويل بدء العمل (الشركات الناشئة)</option>
+                                                <option value="2">التوسع الجغرافي</option>
+                                                <option value="3">تطوير منتجات جديدة</option>
+                                                <option value="4">توسيع قاعدة العملاء</option>
+                                                <option value="5">استحواذ على شركات أخرى</option>
+                                                <option value="6">غير ذلك</option>
+                                              </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <div class="form-outline text-start mb-2">
+                                              <label class="form-label select-label text-dark" for="SelectGrowthStrategy">ما هو مستوى خبرتك في مجال ريادة الأعمال؟<span class="text-danger">*</span></label>
+                                              <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="الخبرة" class="form-select" name="SelectExperience" id="SelectExperience">
+                                                <option value="1">مبتدئ</option>
+                                                <option value="2">متوسط</option>
+                                                <option value="3">متقدم</option>
+                                              </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    <?php endif; ?>
 
 
-                                <!--
-                                  <div class="form-outline mb-2">
-                                    <label class="form-label text-dark" for="SelectInvestmentScope">نطاق الاستثمار<span class="text-danger">*</span></label>
-                                    <div class="mt-3 multi-range-slider multi-ranges-basic" name="SelectInvestmentScope" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]"></div>
 
-                                    <!--
-                                    <div class="multi-range-slider multi-ranges-basic" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]"></div>
-                                    <input type="range" class="form-range mt-4 multi-range-slider multi-ranges-basic" name="SelectInvestmentScope" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]">-->
+                                <?php
+                                if($_SESSION['user_type']=="user1") : ?> 
 
-<!--
-                                    <div class="range-value" id="rangeV"></div>
+                                <label class="form-label text-dark text-start">أي نوع من المستثمرين أنت؟</label>
+                                <?php elseif($_SESSION['user_type']=="user2") : ?>
+                                <label class="form-label text-dark text-start">أي نوع من المستثمرين تبحث عنه؟</label>
+                                <?php endif; ?>
 
-                                    <input type="range" class="form-range mt-4 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope" min="100" max="10000000" value="1000" id="SelectInvestmentScope">
-                                    <!--<div id="multi-ranges-tooltips" class="mt-3 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope"></div>
-                                    <input type="range" class="form-range mt-4 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope" id="SelectInvestmentScope">
-                                    <div class="mt-3 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope"></div>
-                                  -->
-                                </div> 
+                                <div class="text-start mb-2">
+                                  <div class="form-check form-check-inline ">
+                                    <input class="form-check-input" type="checkbox" name="checkboxvar4[]" id="4thinlineCheckbox1" value="option1" required/>
+                                    <label class="form-check-label" for="4thinlineCheckbox1">مجموعة ملاك</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="checkboxvar4[]" id="4thinlineCheckbox2" value="option2" />
+                                    <label class="form-check-label" for="4thinlineCheckbox2">مستثمر ملاك</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="checkboxvar4[]" id="4thinlineCheckbox3" value="option3" />
+                                    <label class="form-check-label" for="4thinlineCheckbox3">مستشار / مرشد</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="checkboxvar4[]" id="4thinlineCheckbox4" value="option4" />
+                                    <label class="form-check-label" for="4thinlineCheckbox4">حاضنة / مسرعة</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="checkboxvar4[]" id="4thinlineCheckbox5" value="option5" />
+                                    <label class="form-check-label" for="4thinlineCheckbox5">محترف استثمار</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="checkboxvar4[]" id="4thinlineCheckbox6" value="option6" />
+                                    <label class="form-check-label" for="4thinlineCheckbox6">مقدم خدمة</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="checkboxvar4[]" id="4thinlineCheckbox7" value="option7" />
+                                    <label class="form-check-label" for="4thinlineCheckbox7">صندوق رأس المال الاستثماري</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="checkboxvar4[]" id="4thinlineCheckbox8" value="option8" />
+                                    <label class="form-check-label" for="4thinlineCheckbox8">آخر</label>
+                                  </div>
+                                </div>   
+                                <p class="text-dark mt-2">نطاق الاستثمار : <span class="text-secondary">12000$</span></p>
+                                    <?php
+                                    if($_SESSION['user_type']=="user1") : ?> 
+                                      <label class="form-label text-dark" for="SelectInvestmentScope">نطاق الاستثمار<span class="text-danger">*</span></label>
 
-                                  <p class="text-dark mt-2">مراحل عمل الشركة : <span class="text-secondary">ربحية</span></p>
-                                  <div class="text-start mb-2">
-                                <div class="form-check form-check-inline ">
-                                  <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox1" value="option1" required />
-                                  <label class="form-check-label" for="inlineCheckbox1">منتج النموذج الأولي/المنتج النهائي</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox2" value="option2" />
-                                  <label class="form-check-label" for="inlineCheckbox2">غير ذلك</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox3" value="option3" />
-                                  <label class="form-check-label" for="inlineCheckbox3">الربحية</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox4" value="option4" />
-                                  <label class="form-check-label" for="inlineCheckbox4">التحقيق في الربح</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox5" value="option5" />
-                                  <label class="form-check-label" for="inlineCheckbox5">تحقيق المبيعات</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" name="CheckBoxNewCompanyStages[]" id="inlineCheckbox6" value="option6" />
-                                  <label class="form-check-label" for="inlineCheckbox6">قبل بدء العمل/البحث والتطوير</label>
-                                </div>
-                              </div>
+                                    <?php elseif($_SESSION['user_type']=="user2") : ?>
+                                      <label class="form-label text-dark" for="SelectInvestmentScope">ما هو نطاق الاستثمار الذي تهتم فيه<span class="text-danger">*</span></label>
+
+                                    <?php endif; ?>
+                                      <div class="form-outline mb-2">
+
+                                        <div class="mt-3 multi-range-slider multi-ranges-basic" name="SelectInvestmentScope" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]"></div>
+
+
+                                        <!--
+                                        <div class="form-outline mb-2">
+                                          <label class="form-label text-dark" for="SelectInvestmentScope">نطاق الاستثمار<span class="text-danger">*</span></label>
+                                          <div class="mt-3 multi-range-slider multi-ranges-basic" name="SelectInvestmentScope" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]"></div>
+
+                                          <!--
+                                          <div class="multi-range-slider multi-ranges-basic" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]"></div>
+                                          <input type="range" class="form-range mt-4 multi-range-slider multi-ranges-basic" name="SelectInvestmentScope" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]">-->
+
+                                        <!--
+                                          <div class="range-value" id="rangeV"></div>
+
+                                          <input type="range" class="form-range mt-4 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope" min="100" max="10000000" value="1000" id="SelectInvestmentScope">
+                                          <!--<div id="multi-ranges-tooltips" class="mt-3 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope"></div>
+                                          <input type="range" class="form-range mt-4 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope" id="SelectInvestmentScope">
+                                          <div class="mt-3 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope"></div>
+                                        -->
+                                        </div> 
+
                               <div class="row mb-2">
                                 <div class="col-md-6">
                                 <p class="text-dark mt-2">لينكدان : <span class="text-secondary">علا خالد</span></p>
@@ -678,15 +762,30 @@ include "./head.php";
                     <p class="card-text text-dark mt-2">
                       المدينة: <span class="text-secondary">اسيوط</span>
                     </p>
-                    <p class="card-text text-dark mt-2">
-                      نوع المستثمر: <span class="text-secondary">مستثمر ملاك</span>
-                    </p>
-                    <p class="card-text text-dark mt-2">
-                      نطاق الاستثمار : <span class="text-secondary">12000$</span>
-                    </p>
-                    <p class="card-text text-dark mt-2">
-                      مراحل عمل الشركة : <span class="text-secondary">ربحية</span>
-                    </p>
+                    <?php
+                    if($_SESSION['user_type']=="user1") : ?> 
+
+                      <p class="card-text text-dark mt-2">
+                        نوع المستثمر: <span class="text-secondary">مستثمر ملاك</span>
+                      </p>
+                      <p class="card-text text-dark mt-2">
+                        نطاق الاستثمار : <span class="text-secondary">12000$</span>
+                      </p>
+                      <p class="card-text text-dark mt-2">
+                        مراحل عمل الشركة : <span class="text-secondary">ربحية</span>
+                      </p>
+                    <?php elseif($_SESSION['user_type']=="user2") : ?>
+                      <p class="card-text text-dark mt-2">
+                        مستوى الخبرة : <span class="text-secondary">مبتدء</span>
+                      </p>
+                      <p class="card-text text-dark mt-2">
+                        نطاق الاستثمار المهتم به : <span class="text-secondary">12000$</span>
+                      </p>
+                      <p class="card-text text-dark mt-2">
+                       استراتيجية النمو : <span class="text-secondary">توسيع قاعدة العملاء</span>
+                      </p>  
+                    <?php endif; ?>
+
                     <p class="card-text text-dark mt-2">
                       لينكدان : <span class="text-secondary">علا خالد</span>
                     </p>
