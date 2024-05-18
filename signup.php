@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-session_start();
+//session_start();
 $title = "Social Investment Hub (SIH) - Signup Page";
 
 include "./head.php";

@@ -1225,39 +1225,5 @@ include "./script-umd.php";
  // });
     //alert(document.getElementById("SelectCountry").value);
   </script>
-<script>
-    // County State
 
-    $('#SelectCountry').on('change', function() {
-        var country_id = this.value;
-         console.log(country_id);
-        $.ajax({
-            url: './assets/ajax/state.php',
-            type: "POST",
-            data: {
-                country_data: country_id
-            },
-            success: function(result) {
-                $('#SelectCity').html(result);
-                 //console.log(result);
-            }
-        })
-    });
-    // state city
-    $('#SelectState').on('change', function() {
-        var state_id = this.value;
-         console.log(country_id);
-        $.ajax({
-            url: './assets/ajax/city.php',
-            type: "POST",
-            data: {
-                state_data: state_id
-            },
-            success: function(data) {
-                $('#city').html(data);
-                // console.log(data);
-            }
-        })
-    });
-</script>
 </html>

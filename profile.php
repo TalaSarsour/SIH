@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-session_start();
+//session_start();
 $title = "الملف الشخصي";
 
 include "./head.php";
@@ -13,6 +13,9 @@ include "./head.php";
     header,
     #main-navbar {
         padding-right: 240px;
+    }
+    main{
+      padding-top: 80px;
     }
 }
 </style>
@@ -167,7 +170,7 @@ include "./head.php";
                     </div>
                   </div>
                 </div>
-                <div class="card pb-5 mt-4">
+                <div class="card mt-3">
                   <div class="card-body">
                     <div class="row d-flex justify-content-between">
                       <div class="col-md-8">
@@ -190,7 +193,7 @@ include "./head.php";
                         aria-labelledby="EditOtherUserInformationModalLabel"
                         aria-hidden="true"
                         >
-                          <div class="modal-dialog">
+                          <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                               <div class="modal-header">
                                 <h5 class="modal-title modal-dialog-centered fw-bold" id="staticBackdropLabel">تحديث المعلومات الاخرى</h5>
@@ -198,6 +201,95 @@ include "./head.php";
                               </div>
                               <div class="modal-body text-start">
                                 <form class="needs-validation"  method="post">
+                                  <div class="row">
+                                    <div class="col-md-6 text-start">
+                                    <p class="text-dark mt-2">الجنس : <span class="text-secondary">انثى</span></p>
+
+                                      <div class="d-flex flex-row align-items-center mb-0">
+                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+
+                                        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+<!--
+                                          <h6 class="mb-0 me-4 text-start">الجنس:</h6>-->
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="Gender" id="maleGender"
+                                              value="option2" />
+                                            <label class="form-check-label" for="maleGender">ذكر</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="Gender" id="femaleGender"
+                                              value="option1" checked />
+                                            <label class="form-check-label" for="femaleGender">انثى</label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <p class="text-dark mt-2">رقم الهاتف : <span class="text-secondary">0595143841</span></p>
+                                      <div class="d-flex flex-row align-items-center mb-4 ">
+                                        <i class="fas fa-phone-flip fa-lg me-3 fa-fw"></i>
+                                        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                          <input type="tel" id="NewPhoneNumber" class="form-control" />
+                                          <label class="form-label" for="NewPhoneNumber">رقم الهاتف الجديد</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row scroll">
+                                  <div class="col-md-6">
+                                    <div class="form-outline text-start mb-2">
+                                      <label class="form-label select-label text-dark" for="SelectCountry">الدولة<span class="text-danger">*</span><span class="text-secondary">: مصر</span></label>
+                                      <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="الدولة" class="form-select" name="SelectCountry" id="SelectCountry" required>
+                                      <?php
+
+                                        // Define your table and column names (change as needed)
+                                        $Country = "countries";
+                                        $Country_ID = "id";
+                                        $Country_Name = "native";
+
+                                        // Write the SQL query
+                                        $sql = "SELECT $Country_ID, $Country_Name FROM $Country ORDER BY $Country_Name ASC";
+                                        $result = mysqli_query($conn, $sql);
+
+                                        // Check query execution
+                                        if (mysqli_num_rows($result) > 0) {
+                                        // echo "<select>";
+                                          
+                                          // Loop through each row in the result
+                                          while($row = mysqli_fetch_assoc($result)) {
+                                            $value = $row[$Country_ID];
+                                            $text = $row[$Country_Name];
+                                            
+                                            // Display option element with value and text
+                                            echo "<option value='$value'>$text</option>";
+                                          }
+                                          
+                                          echo "</select>";
+                                        } else {
+                                          echo "No records found";
+                                        }
+
+                                        // Close connection
+                                        //mysqli_close($conn);
+
+                                        ?>
+
+                                       
+<!--
+                                      </select>-->
+                                    </div>
+                                    <input type="hidden" id="selected-value" name="selected-value">
+
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-outline text-start mb-2">
+                                      <label class="form-label select-label text-dark" for="SelectCity">المدينة<span class="text-danger">*</span><span class="text-secondary">: اسيوط</span></label>
+                                      <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="المدينة" class="form-select" name="SelectCity" id="SelectCity" required>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!--
                                   <p class="text-dark mt-2">الدولة : <span class="text-secondary">مصر</span></p>
                                   <div class="form-outline text-start mb-2">
                                     <label class="form-label select-label text-dark" for="SelectNewCountry">الدولة<span class="text-danger">*</span></label>
@@ -447,7 +539,8 @@ include "./head.php";
                                       <option value="Zambia">Zambia</option>
                                       <option value="Zimbabwe">Zimbabwe</option>
                                     </select>
-                                  </div>
+                                  </div>-->
+                                  <!--
 
                                   <p class="text-dark mt-2">المدينة : <span class="text-secondary">مصر</span></p>
                                   <div class="form-outline text-start mb-2">
@@ -461,7 +554,7 @@ include "./head.php";
                                     <option value="Ramallah">Ramallah</option>
                                     <option value="Bethlehem">Bethlehem</option>
                                     <option value="Khan Yunis">Khan Yunis</option>
-                                    <option value="Rafah">Rafah</option>
+                                    <option value="Rafah">Rafah</option>-->
                                       <!--
                                       <option value="1">1</option>
                                       <option value="2">2</option>
@@ -470,8 +563,8 @@ include "./head.php";
                                       <option value="5">5</option>
                                       <option value="6">6</option>
                                       <option value="7">7</option>-->
-                                    </select>
-                                  </div>
+                                    <!--</select>
+                                  </div>-->
                                   <p class="text-dark mt-2">نطاق الاستثمار : <span class="text-secondary">12000$</span></p>
                                   <div class="form-outline mb-2">
                                   <label class="form-label text-dark" for="SelectInvestmentScope">نطاق الاستثمار<span class="text-danger">*</span></label>
@@ -525,6 +618,29 @@ include "./head.php";
                                   <label class="form-check-label" for="inlineCheckbox6">قبل بدء العمل/البحث والتطوير</label>
                                 </div>
                               </div>
+                              <div class="row mb-2">
+                                <div class="col-md-6">
+                                <p class="text-dark mt-2">لينكدان : <span class="text-secondary">علا خالد</span></p>
+                                  <div class="d-flex flex-row align-items-center">
+                                    <i class="fa-brands fa-linkedin fa-lg me-3 fa-fw"></i>
+                                    <div data-mdb-input-init class="form-outline text-start mb-2">
+                                      <input type="text" name="NewLinkedIn" id="NewLinkedIn" placeholder="لينكدان الجديد" class="form-control form-control-lg"/>
+                                      <label class="form-label" for="NewLinkedIn">لينكدان الجديد</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                <p class="text-dark mt-2">فيس بوك : <span class="text-secondary">علا خالد</span></p>
+                                  <div class="d-flex flex-row align-items-center">
+                                    <i class="fa-brands fa-facebook-f fa-lg me-3 fa-fw"></i>
+                                    <div data-mdb-input-init class="form-outline flex-fill text-start mb-2">
+                                      <input type="text" name="NewFacebook" id="NewFacebook" placeholder="فيس بوك الجديد" class="form-control form-control-lg"/>
+                                      <label class="form-label" for="NewFacebook">فيس بوك الجديد</label>
+                                  </div>
+                                </div>
+                              </div>  
+                              </div>   
+                              <!--
                                   <p class="text-dark mt-2">لينكدان : <span class="text-secondary">علا خالد</span></p>
                                   <div data-mdb-input-init class="form-outline text-start mb-2">
                                     <input type="text" name="NewLinkedIn" id="NewLinkedIn" placeholder="لينكدان الجديد" class="form-control form-control-lg"/>
@@ -535,7 +651,7 @@ include "./head.php";
                                   <div data-mdb-input-init class="form-outline text-start mb-2">
                                     <input type="text" name="NewFacebook" id="NewFacebook" placeholder="فيس بوك الجديد" class="form-control form-control-lg"/>
                                     <label class="form-label" for="NewFacebook">فيس بوك الجديد</label>
-                                  </div>
+                                  </div>-->
                                   <div class="text-center">
                                     <button type="submit" class="btn btn-primary" data-mdb-ripple-init>حفظ</button>
                                   </div>
@@ -549,11 +665,21 @@ include "./head.php";
                         </div>
                       </div>
                     </div>
+
+                    <p class="card-text text-dark mt-2">
+                      الجنس: <span class="text-secondary">انثى</span>
+                    </p>
+                    <p class="card-text text-dark mt-2">
+                      رقم الهاتف: <span class="text-secondary">0595143841</span>
+                    </p>
                     <p class="card-text text-dark mt-2">
                       الدولة: <span class="text-secondary">مصر</span>
                     </p>
                     <p class="card-text text-dark mt-2">
                       المدينة: <span class="text-secondary">اسيوط</span>
+                    </p>
+                    <p class="card-text text-dark mt-2">
+                      نوع المستثمر: <span class="text-secondary">مستثمر ملاك</span>
                     </p>
                     <p class="card-text text-dark mt-2">
                       نطاق الاستثمار : <span class="text-secondary">12000$</span>
@@ -636,7 +762,7 @@ include "./head.php";
                     </p>
                   </div>
                 </div>
-                <div class="card mt-3">
+                <div class="card mt-4">
                   <div class="card-body">
                     <div class="row d-flex justify-content-between">
                       <div class="col-md-4">
@@ -721,7 +847,7 @@ include "./head.php";
                     </p>
                   </div>
                 </div>
-                <div class="card mt-3">
+                <div class="card mt-4">
                   <div class="card-body">
                     <div class="row d-flex justify-content-between">
                       <div class="col-md-4">
@@ -881,7 +1007,7 @@ include "./head.php";
                     </p>
                   </div>
                 </div>
-                <div class="card mt-3">
+                <div class="card mt-4 pb-4 h-100">
                   <div class="card-body">
                     <div class="row d-flex justify-content-between">
                       <div class="col-md-4">

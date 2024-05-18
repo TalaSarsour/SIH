@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-session_start();
+//session_start();
 $title = "الدردشة";
 
 include "./head.php";
@@ -13,6 +13,9 @@ include "./head.php";
     header,
     #main-navbar {
         padding-right: 240px;
+    }
+    main{
+      padding-top: 80px;
     }
 }
 </style>

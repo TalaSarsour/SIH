@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-session_start();
+//session_start();
 $title = "المستثمرين";
 
 include "./head.php";

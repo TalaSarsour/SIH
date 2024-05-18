@@ -9,8 +9,9 @@
 <script type="text/javascript" src="./assets/plugins/js/file-upload.min.js"></script>
 
 <script type="text/javascript" src="./assets/js/PrismJS/prism.js"></script>
+<!--
 <script type="text/javascript" src="./assets/js/ChartJS/chart.umd.min.js"></script>
-
+-->
 <script type="text/javascript" src="./assets/js/Jquery/jquery-3.7.1.min.js"></script>
 <script src="https://unpkg.com/picmo@latest/dist/umd/index.js"></script>
 <script src="https://cdn.tiny.cloud/1/oe0h8ms4kwzr37es7dpuq6dnrfkocat5z5v38kjf51p1khmt/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
@@ -295,6 +296,7 @@ range.addEventListener('input', setValue);*/
 
 <script>
   // Graph
+  /*
 var ctx = document.getElementById("myChart");
 
 var myChart = new Chart(ctx, {
@@ -334,7 +336,7 @@ var myChart = new Chart(ctx, {
       display: false,
     },
   },
-});
+});*/
 </script>
 <script>
   const searchFocus = document.getElementById('search-focus');
@@ -394,9 +396,12 @@ window.addEventListener('keyup', (e) => {
     var href2 = $(this).attr('href').split('./')[1]; // Extract href without hash
     if(href == "" || href == currentLocation){
       return href === "" || href === currentLocation;
+      console.log("href 1",href);
     }else
     if(href2 == "" || href2 == currentLocation){
       return href2 === "" || href2 === currentLocation;
+      console.log("href 2",href2);
+
     }
   });
 
@@ -451,4 +456,39 @@ document.addEventListener('focusin', (e) => {
     e.stopImmediatePropagation();
   }
 });
+</script>
+<script>
+    // County State
+
+    $('#SelectCountry').on('change', function() {
+        var country_id = this.value;
+         //console.log(country_id);
+        $.ajax({
+            url: './assets/ajax/state.php',
+            type: "POST",
+            data: {
+                country_data: country_id
+            },
+            success: function(result) {
+                $('#SelectCity').html(result);
+                 //console.log(result);
+            }
+        })
+    });
+    // state city
+    $('#SelectState').on('change', function() {
+        var state_id = this.value;
+         console.log(country_id);
+        $.ajax({
+            url: './assets/ajax/city.php',
+            type: "POST",
+            data: {
+                state_data: state_id
+            },
+            success: function(data) {
+                $('#city').html(data);
+                // console.log(data);
+            }
+        })
+    });
 </script>

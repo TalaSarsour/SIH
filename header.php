@@ -1,14 +1,15 @@
  <?php
-    session_start();
- ?>
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+} ?>
  <!--Main Navigation-->
   <header>
     <!-- Sidebar -->
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
       <div class="position-sticky">
-        <div class="list-group list-group-flush mx-3 mt-0">
+        <div class="list-group list-group-flush mt-0">
         <!-- Brand -->
-          <a href="#home" class="py-2 navbar-brand" data-mdb-ripple-init aria-current="true">
+          <a href="#home" class="py-2 navbar-brand mx-3" data-mdb-ripple-init aria-current="true">
             <img src="./assets/img/logo-v2-1.svg"
             style="width: 120px; height: 70;" alt="logo">
           </a>
@@ -48,7 +49,7 @@
             endif; ?>
             
           <a href="./profile.php" class="list-group-item list-group-item-action py-2 text-secondary"  data-mdb-ripple-init><i
-              class="far fa-user fa-fw me-3"></i><span>الملف الشخصي</span></a>
+              class="far fa-user fa-fw me-3"></i><span>تحديث الملف الشخصي</span></a>
           <a href="./chat.php" class="list-group-item list-group-item-action py-2 text-secondary" data-mdb-ripple-init><i 
               class="fa-light fa-message-dots me-3"></i><span>الدردشة</span>
           </a>
@@ -107,8 +108,8 @@
                 
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="./profile.php">الملف الشخصي</a></li>
-              <li><a class="dropdown-item" href="#">الاعدادات</a></li>
+              <li><a class="dropdown-item" href="./profile.php">تحديث الملف الشخصي</a></li>
+              <li><a class="dropdown-item" href="#">اعدادات الحساب</a></li>
               <li><a class="dropdown-item" href="#">تسجيل الخروج</a></li>
             </ul>
           </li>
