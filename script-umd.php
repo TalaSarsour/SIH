@@ -20,8 +20,12 @@
 <script type="text/javascript">
   import "mdb-ui-kit";
 
-  const basicExample = document.querySelector('.multi-ranges-basic');
-  const basicExampleInit = new mdb.MultiRangeSlider(basicExample);
+  /*const basicExample = document.querySelector('.multi-ranges-basic');
+  const basicExampleInit = new mdb.MultiRangeSlider(basicExample);*/
+  $(document).ready(() => {
+  $('.multi-ranges-basic').multiRangeSlider(options);
+});
+
 /*
     const tooltips = document.querySelector('#multi-ranges-tooltips');
     const initTooltips = new mdb.MultiRangeSlider(tooltips, { tooltips: true, startValues: [0, 1000] });*/
