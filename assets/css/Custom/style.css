@@ -1,0 +1,117 @@
+.btn-primary {
+    background-color: #3E84A8 !important;
+}
+.btn-link {
+    color: #3E84A8 !important;
+}
+.text-primary {
+    color: #3E84A8 !important;
+}
+.breadcrumb-item .active{
+    color: #3E84A8 !important;
+}
+/*.accordion-button{
+    background-color: #F2F2F2 !important;
+}*/
+.border-primary{
+    border-color: #3e84a8 !important;
+}
+.border-sencondery{
+    border-color: #E9E8E8 !important;
+}
+.stepper-active{
+    color: #3E84A8 !important;
+}
+.text-bg-primary{
+    background-color: #3E84A8 !important;
+
+}
+.nav-item .active{
+    background-color: #3E84A8 !important;
+
+}
+
+.list-group-item-action.active {
+    background-color: #3E84A8 !important;
+
+}
+
+
+/*.list-group-item:active{
+    background-color: #3E84A8 !important;
+}
+
+.active .list-group-item-action{
+    background-color: #3E84A8 !important;
+}*/
+#search-focus{
+    background-color: white !important;
+}
+* {
+    font-family: almarai;
+}
+.gradient-custom2 {
+    /* fallback for old browsers */
+    /*background: #a3ee8c;*/
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(163, 238, 140, 0.5), rgba(83, 216, 164, 0.5));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(163, 238, 140, 0.5), rgba(83, 216, 164, 0.5))
+
+}
+
+.gradient-custom {
+    /*font-size: 72px;*/
+    background: -webkit-linear-gradient(rgba(163, 238, 140, 0.5), rgba(83, 216, 164, 0.5));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@media (max-width: 576px) {
+    [id^=dpl-], [class^=dpl-], .mobile-hidden {
+        display: none!important;
+    }
+}
+@media (max-width: 1440px) {
+    #mdb-footer {
+      padding-left: 0;
+    }
+  }
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+.scroll {
+    overflow-y: auto;
+}
+/*
+.stepper {
+    direction: rtl !important;
+}*/
+
+/*
+.stepper-rtl {
+    direction: rtl;
+    /* Add other RTL-specific styles here if needed * /
+  }*/
+ /* html {direction: rtl;}*/
+
+.multi-ranges-basic{
+    direction: rtl;
+ }
+ 
+ body, html {
+    height: 100%;
+    margin: 0; /* Remove default margin */
+  }
+  
+  .bg {
+    background-image: url("/SIH/assets/img/Background-Gradient-100.png");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat; /* Image won't repeat */
+    background-size: cover; /* Scales image to cover the entire area */
+  }

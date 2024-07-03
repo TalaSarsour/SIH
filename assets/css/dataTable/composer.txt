@@ -1,0 +1,6 @@
+php composer.phar install datatables.net-dt
+php composer.phar install datatables.net-se
+php composer.phar install datatables.net-bs5
+php composer.phar install datatables.net-bm
+php composer.phar install datatables.net-zf
+php composer.phar install datatables.net-jqui
