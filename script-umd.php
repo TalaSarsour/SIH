@@ -1,30 +1,65 @@
 <!-- MDB ESSENTIAL -->
-<!--<script type="text/javascript" src="./assets/js/mdb/mdb.es.min.js"></script>
+<!--<script type="text/javascript" src="/SIH/assets/mdb/js/mdb.es.min.js"></script>
 -->
 
-<script type="text/javascript" src="./assets/js/mdb/mdb.umd.min.js"></script>
+<script type="text/javascript" src="/SIH/assets/mdb/js/mdb.umd.min.js"></script>
 
 <!-- MDB PLUGINS -->
-<script type="text/javascript" src="./assets/plugins/js/all.min.js"></script>
-<script type="text/javascript" src="./assets/plugins/js/file-upload.min.js"></script>
-
-<script type="text/javascript" src="./assets/js/PrismJS/prism.js"></script>
+<script type="text/javascript" src="/SIH/assets/mdb/plugins/js/all.min.js"></script>
 <!--
-<script type="text/javascript" src="./assets/js/ChartJS/chart.umd.min.js"></script>
+<script type="text/javascript" src="/SIH/assets/mdb/plugins/js/file-upload.min.js"></script>-->
+
+<script type="text/javascript" src="/SIH/assets/js/PrismJS/prism.js"></script>
+<!--
+<script type="text/javascript" src="/SIH/assets/js/ChartJS/chart.umd.min.js"></script>
+
+<script type="text/javascript" src="/SIH/assets/Font-Awesome/js/all.js"></script>
 -->
-<script type="text/javascript" src="./assets/js/Jquery/jquery-3.7.1.min.js"></script>
+<script src="https://site-assets.fontawesome.com/releases/v6.5.2/js/all.js"></script>
+
+<script type="text/javascript" src="/SIH/assets/js/Jquery/jquery-3.7.1.min.js"></script>
 <script src="https://unpkg.com/picmo@latest/dist/umd/index.js"></script>
 <script src="https://cdn.tiny.cloud/1/oe0h8ms4kwzr37es7dpuq6dnrfkocat5z5v38kjf51p1khmt/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tinymce/tinymce-jquery@2/dist/tinymce-jquery.min.js"></script>
 <!-- Custom MDB scripts -->
 <script type="text/javascript">
   import "mdb-ui-kit";
+ /* const basicExample = document.querySelector('.multi-ranges-basic');
+const oneRangeValueBasic = document.querySelector('#multi-ranges-basic-value');
 
-  /*const basicExample = document.querySelector('.multi-ranges-basic');
-  const basicExampleInit = new mdb.MultiRangeSlider(basicExample);*/
-  $(document).ready(() => {
-  $('.multi-ranges-basic').multiRangeSlider(options);
-});
+const basicExampleInit = new mdb.MultiRangeSlider(basicExample, {
+  max: 100,
+  min: 0,
+});*/
+const basicExample = document.querySelector('#multi-ranges-basic');
+const oneRangeValueBasic = document.querySelector('#multi-ranges-basic-value');
+
+basicExample.addEventListener('valueChanged.mdb.multiRangeSlider', (e) => {
+  const [first, second] = e.values.rounded;
+  firstt = e.values.rounded[0];
+lastt =e.values.rounded[1]
+  alert("first = ".firstt);
+  console.log('first', first);
+  oneRangeValueBasic.innerHTML = `
+    Value: 
+    <div class="d-flex flex-column">
+      <div>new First: ${e.values.rounded[0]}</div>
+      <div>new Second: ${e.values.rounded[1]}</div>
+    </div>
+  `;
+});/*
+      <div>new First: ${first}</div>
+      <div>new Second: ${second}</div>
+  // Manually initialize the multi-range slider with RTL direction
+  new mdb.MultiRangeSlider(basicExample, {
+      direction: 'rtl'
+  });
+/*
+  const basicExample = document.querySelector('.multi-ranges-basic');
+  const basicExampleInit = new mdb.MultiRangeSlider(basicExample);
+  /*$(document).ready(() => {
+    $('.multi-ranges-basic').multiRangeSlider(options);
+  });*/
 
 /*
     const tooltips = document.querySelector('#multi-ranges-tooltips');
@@ -78,14 +113,14 @@
     document.getElementById('user-type1-label').style.color = "white";
     document.getElementById('user-type1-label').style.backgroundColor = "#3e84a8";
     //document.getElementById('icon-1').style.color = "white";
-    document.getElementById('icon-1').src= './assets/img/user1.png';
+    document.getElementById('icon-1').src= '/SIH/assets/img/user1.png';
 
     document.getElementById('user-type2-label').style.color = "black";
     document.getElementById('user-type2-label').style.backgroundColor = "white";
     //document.getElementById('icon-2').style.color = "#3e84a8";
     //document.getElementById('icon-2').style.fill = "#3e84a8";
-    //document.getElementById('icon-2').attr('src',"./assets/img/user2-blue.png");
-    document.getElementById('icon-2').src= './assets/img/user2-blue.png';
+    //document.getElementById('icon-2').attr('src',"/SIH/assets/img/user2-blue.png");
+    document.getElementById('icon-2').src= '/SIH/assets/img/user2-blue.png';
 
 
   }  
@@ -94,12 +129,12 @@
     document.getElementById('user-type1-label').style.backgroundColor = "white";
     //document.getElementById('icon-1').style.color = "#3e84a8";
     //document.getElementById('icon-1').style.fill = "red";
-    document.getElementById('icon-1').src= './assets/img/user1-blue.png';
+    document.getElementById('icon-1').src= '/SIH/assets/img/user1-blue.png';
 
     document.getElementById('user-type2-label').style.color = "white";
     document.getElementById('user-type2-label').style.backgroundColor = "#3e84a8";
     //document.getElementById('icon-2').style.color = "white";
-    document.getElementById('icon-2').src= './assets/img/user2.png';
+    document.getElementById('icon-2').src= '/SIH/assets/img/user2.png';
 
   }  
 
@@ -160,6 +195,7 @@ function setStepperDirection(isRTL) {
 </script>
 <script type="text/javascript">
   const stepper = new mdb.Stepper(document.getElementById('stepper-buttons'));
+  //const stepper = document.querySelector('.stepper');
 
   document.getElementById('first-next-step').addEventListener('click', () => {
     stepper.nextStep();
@@ -464,35 +500,49 @@ document.addEventListener('focusin', (e) => {
 <script>
     // County State
 
-    $('#SelectCountry').on('change', function() {
+    $('.SelectCountry').on('change', function() {
         var country_id = this.value;
          //console.log(country_id);
         $.ajax({
-            url: './assets/ajax/state.php',
+            url: '/SIH/assets/ajax/state.php',
             type: "POST",
             data: {
                 country_data: country_id
             },
             success: function(result) {
-                $('#SelectCity').html(result);
-                 //console.log(result);
+                //$('.SelectCity').html(result);
+
+                $('.SelectCity').html(result);
+                 console.log(result);
             }
         })
     });
     // state city
+    /*
     $('#SelectState').on('change', function() {
         var state_id = this.value;
          console.log(country_id);
         $.ajax({
-            url: './assets/ajax/city.php',
+            url: '/SIH/assets/ajax/city.php',
             type: "POST",
             data: {
                 state_data: state_id
             },
             success: function(data) {
+                //$('.city').html(data);
+
                 $('#city').html(data);
-                // console.log(data);
+                 console.log(data);
             }
         })
-    });
+    });*/
 </script>
+<script>
+  const element = document.querySelector('.multi-carousel');
+  const instance = new MultiCarousel(carousel);
+</script>
+<!--
+<script>
+  const element2 = document.querySelector('.carousel');
+  const instance2 = new mdb.Carousel(element2);
+</script>-->

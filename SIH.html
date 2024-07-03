@@ -1,0 +1,87 @@
+<!--Nasser G Khaled-->
+<!DOCTYPE html>
+<html lang="ar" dir="auto">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Application</title>
+    <style>
+        #chat-container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #messages {
+            height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        #messageInput {
+            width: calc(100% - 60px);
+            padding: 5px;
+        }
+        #sendButton {
+            width: 50px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="messages"></div>
+        <input type="text" id="messageInput" placeholder="Type a message...">
+        <button id="sendButton">Send</button>
+    </div>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, push, set, onChildAdded } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+                  apiKey: "AIzaSyCBF51G3G-jlM7t-jwmFEkMirXC8pJg2BU",
+                  authDomain: "fir-i-h.firebaseapp.com",
+                  databaseURL: "https://sih-social-investment-hub-ps-default-rtdb.firebaseio.com",
+                  projectId: "fir-i-h",
+                  storageBucket: "fir-i-h.appspot.com",
+                  messagingSenderId: "144704515402",
+                  appId: "1:144704515402:web:0c6d6b0a6e9b0afcede5b3"
+              };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Reference to the messages object in your Firebase database
+        const messagesRef = ref(database, 'messages');
+
+        // Send message
+        document.getElementById('sendButton').addEventListener('click', () => {
+            const message = document.getElementById('messageInput').value;
+            const timestamp = Date.now();
+
+            // Create a new message reference with an auto-generated id
+            const newMessageRef = push(messagesRef);
+
+            // Set the message data at the new reference
+            set(newMessageRef, {
+                message: message,
+                timestamp: timestamp
+            });
+
+            document.getElementById('messageInput').value = '';
+        });
+
+        // Listen for new messages
+        onChildAdded(messagesRef, (snapshot) => {
+            const message = snapshot.val();
+            const messageElement = document.createElement('div');
+            messageElement.textContent = message.message;
+            document.getElementById('messages').appendChild(messageElement);
+        });
+    </script>
+</body>
+</html>

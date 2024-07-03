@@ -2,7 +2,15 @@
 <?php
 session_start();
 $title = "Social Investment Hub (SIH) - Signup Page";
-
+if(!isset($_SESSION['user_type'])){
+  header("location: ./user-type.php");
+  exit;
+}
+if(!isset($_SESSION['Email_Address'])){
+  //header("location: ./signup.php");
+  //exit;
+}
+include "./session.php";
 include "./head.php";
 ?>
 
@@ -14,7 +22,7 @@ include "./head.php";
 <!--Main layout-->
 
 <main>
-  <div class="container-fluid bg-image" style="background-image: url(./assets/img/Background-Gradient-100.png);height: 100vh;">
+  <div class="container-fluid bg-image" style="background-image: url(/SIH/assets/img/Background-Gradient-100.png);height: 100vh;">
 
     <!--Section: Content-->
     <!-- use class vh-100 to static size no scrolling-->
@@ -24,7 +32,7 @@ include "./head.php";
           <div class="col-12 col-md-7 col-lg-7 col-xl-7">
             <div class="card shadow-2-strong rounded" style="border-radius: 1rem;">
               <div class="card-body text-center">
-                <img src="./assets/img/logo-v2-1.svg"
+                <img src="/SIH/assets/img/logo-v2-1.svg"
                 style="width: 218px; height: 70;" alt="logo">
 
                 <h5>إكمال إنشاء حساب</h5>
@@ -36,7 +44,8 @@ include "./head.php";
 
                     <section id="custom-validation" class="justify-content-center text-center w-100">
                       <div>
-                      <form class="needs-validation stepper-form" action="" method="post">
+                        
+                      <form class="needs-validation stepper-form"  action="./signup-2-db.php" method="post">
                         <ul class="stepper" id="stepper-buttons" data-mdb-stepper-init data-mdb-stepper-linear="true">
                           <li class="stepper-step stepper-active">
                             <div class="stepper-head">
@@ -53,12 +62,12 @@ include "./head.php";
                                       <h6 class="mb-1 me-4">الجنس : </h6>
                                       <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="Gender" id="maleGender"
-                                          value="option2" />
+                                          value="1" />
                                         <label class="form-check-label" for="maleGender">ذكر</label>
                                       </div>
                                       <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="Gender" id="femaleGender"
-                                          value="option1" checked />
+                                          value="2" checked />
                                         <label class="form-check-label" for="femaleGender">انثى</label>
                                       </div>
                                     </div>
@@ -68,8 +77,9 @@ include "./head.php";
                                   <div class="d-flex flex-row align-items-center mb-0 ">
                                     <i class="fas fa-phone-flip fa-lg me-3 fa-fw"></i>
                                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                      <input type="tel" id="PhoneNumber" class="form-control" />
-                                      <label class="form-label" for="PhoneNumber">رقم الهاتف</label>
+                                      <input type="tel" id="Phone_Number" name="Phone_Number" class="form-control"  data-mdb-showcounter="true" pattern="[0-9]*" minlength="10" maxlength="10" required/>
+                                      <label class="form-label" for="Phone_Number">رقم الهاتف</label>
+                                      <div class="form-helper"></div>
                                     </div>
                                   </div>
                                 </div>
@@ -78,7 +88,7 @@ include "./head.php";
                                 <div class="col-md-6">
                                   <div class="form-outline text-start mb-3">
                                     <label class="form-label select-label text-dark" for="SelectCountry">الدولة<span class="text-danger">*</span></label>
-                                    <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="الدولة" class="form-select" name="SelectCountry" id="SelectCountry" required>
+                                    <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="الدولة" class="form-select SelectCountry" name="SelectCountry" id="SelectCountry" required>
                                     <?php
 /*
                                       // Database connection details (replace with your actual details)
@@ -96,12 +106,17 @@ include "./head.php";
                                       }
 */
                                       // Define your table and column names (change as needed)
-                                      $Country = "countries";
-                                      $Country_ID = "id";
+                                      /*$Country = "countries";
+                                      $ID = "id";
+                                      $Country_ID = "country_id";
                                       $Country_Name = "native";
+                                      $States = "states";*/
 
-                                      // Write the SQL query
-                                      $sql = "SELECT $Country_ID, $Country_Name FROM $Country ORDER BY $Country_Name ASC";
+                                      // Write the SQL query                                               INNER JOIN $States ON $Country.$ID = $States.$Country_ID 
+
+                                      $sql = "SELECT id, native FROM countries 
+                                              WHERE id IN (SELECT country_id FROM states GROUP BY country_id)
+                                              ORDER BY native ASC";
                                       $result = mysqli_query($conn, $sql);
 
                                       // Check query execution
@@ -109,12 +124,21 @@ include "./head.php";
                                       // echo "<select>";
                                         
                                         // Loop through each row in the result
+                                        $firstOption = true;
+
                                         while($row = mysqli_fetch_assoc($result)) {
-                                          $value = $row[$Country_ID];
-                                          $text = $row[$Country_Name];
+                                          $value = $row['id'];
+                                          $text = $row['native'];
                                           
                                           // Display option element with value and text
-                                          echo "<option value='$value'>$text</option>";
+                                          if ($firstOption) {
+                                            echo "<option value='$value' selected>$text</option>";
+                                            // Set the flag to false after the first iteration
+                                            $firstOption = false;
+                                          }else{
+                                            echo "<option value='$value'>$text</option>";
+
+                                          }
                                         }
                                         
                                         echo "</select>";
@@ -375,13 +399,14 @@ include "./head.php";
 
                                     </select>-->
                                   </div>
-                                  <input type="hidden" id="selected-value" name="selected-value">
+                                  <!--
+                                  <input type="hidden" id="selected-value" name="selected-value">-->
 
                                 </div>
                                 <div class="col-md-6">
                                   <div class="form-outline text-start mb-3">
                                     <label class="form-label select-label text-dark" for="SelectCity">المدينة<span class="text-danger">*</span></label>
-                                    <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="المدينة" class="form-select" name="SelectCity" id="SelectCity" required>
+                                    <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="المدينة" class="form-select SelectCity" name="SelectCity" id="SelectCity" required>
                                     <div class="invalid-feedback">هذه الخانة مطلوبة</div>
 
                                     <?php
@@ -458,7 +483,7 @@ include "./head.php";
                                     <option value="Ramallah">Ramallah</option>
                                     <option value="Bethlehem">Bethlehem</option>
                                     <option value="Khan Yunis">Khan Yunis</option>
-                                    <option value="Rafah">Rafah</option>
+                                    <option value="Rafah">Rafah</option>-->
                                       <!--
                                       <option value="1">1</option>
                                       <option value="2">2</option>
@@ -467,6 +492,8 @@ include "./head.php";
                                       <option value="5">5</option>
                                       <option value="6">6</option>
                                       <option value="7">7</option>-->
+                                      <option value="">اختر مدينة</option>
+
                                     </select>
                                   </div>
                                 </div>
@@ -521,7 +548,7 @@ include "./head.php";
                                   <!--
                                 </div>
                               </div>-->
-                              <div class="form-outline text-start mb-3" data-mdb-input-init >
+                              <div class="form-outline text-start mb-4" data-mdb-input-init >
                                 <label class="form-label text-dark" for="AboutMe">نبذة عني<span class="text-danger">*</span></label>
                                 <textarea class="form-control" name="AboutMe" id="AboutMe" placeholder="نبذة عني" rows="2" required></textarea>
                                 <div class="invalid-feedback">هذه الخانة مطلوبة</div>
@@ -569,12 +596,12 @@ include "./head.php";
                                       <!--data-mdb-placeholder="مجالات الخبرة"  -->
                                       <?php
                                     // Define your table and column names (change as needed)
-                                      $area_of_experience = "area_of_experience";
-                                      $Area_Of_Experience_ID = "Area_Of_Experience_ID";
-                                      $Area_Of_Experience_Name = "Area_Of_Experience_Name";
+                                      $areas_of_experience = "areas_of_experience";
+                                      $Areas_Of_Experience_ID = "Areas_Of_Experience_ID";
+                                      $Areas_Of_Experience_Name = "Areas_Of_Experience_Name";
 
                                       // Write the SQL query
-                                      $sql = "SELECT $Area_Of_Experience_ID, $Area_Of_Experience_Name FROM $area_of_experience ORDER BY $Area_Of_Experience_Name ASC";
+                                      $sql = "SELECT $Areas_Of_Experience_ID, $Areas_Of_Experience_Name FROM $areas_of_experience ORDER BY $Areas_Of_Experience_Name ASC";
                                       $result = mysqli_query($conn, $sql);
 
                                       // Check query execution
@@ -583,8 +610,8 @@ include "./head.php";
                                         
                                         // Loop through each row in the result
                                         while($row = mysqli_fetch_assoc($result)) {
-                                          $value = $row[$Area_Of_Experience_ID];
-                                          $text = $row[$Area_Of_Experience_Name];
+                                          $value = $row[$Areas_Of_Experience_ID];
+                                          $text = $row[$Areas_Of_Experience_Name];
                                           
                                           // Display option element with value and text
                                           echo "<option value='$value'>$text</option>";
@@ -614,10 +641,10 @@ include "./head.php";
                                 <div class="col-md-6">
                                   <div class="text-start mt-2">
 
-                                    <label class="form-label text-dark" for="SelectExpYears">سنوات الخبرة<span class="text-danger">*</span></label>
+                                    <label class="form-label text-dark" for="ExpYears">سنوات الخبرة<span class="text-danger">*</span></label>
 
                                   <div class="form-outline text-start mb-2" data-mdb-input-init>
-                                    <input type="number" id="SelectExpYears" name="SelectExpYears" class="form-control" value="1"/>
+                                    <input type="number" id="ExpYears" name="ExpYears" class="form-control" value="1" min="1" max="20"/>
                                   </div>
                                 </div>
                                 </div>
@@ -629,29 +656,73 @@ include "./head.php";
                                   <?php
                                   if($_SESSION['user_type']=="user1") : ?> 
 
-                                    <label class="form-label text-dark" for="SelectInvestmentScope">نطاق الاستثمار<span class="text-danger">*</span></label>
+                                    <label class="form-label text-dark" for="SelectInvestmentRange">نطاق الاستثمار<span class="text-danger">*</span></label>
                                   <?php elseif($_SESSION['user_type']=="user2") : ?>
-                                    <label class="form-label text-dark" for="SelectInvestmentScope">ما هو نطاق الاستثمار الذي تهتم فيه<span class="text-danger">*</span></label>
+                                    <label class="form-label text-dark" for="SelectInvestmentRange">ما هو نطاق الاستثمار الذي تهتم فيه<span class="text-danger">*</span></label>
                                     <?php endif; ?>
-                                    <div class="mt-3 multi-range-slider multi-ranges-basic" name="SelectInvestmentScope" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]"></div>
+                                    <div class="form-outline text-start mt-2">
+                                            <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="نطاق الاستثمار" class="form-select" name="SelectNewInvestmentRange" id="SelectNewInvestmentRange" required>
 
+                                      <?php
+                                                // Define your table and column names (change as needed)
+                                                /*$experience_level = "experience_level";
+                                                $Experience_Level_ID  = "Experience_Level_ID";
+                                                $Experience_Level_Name = "Experience_Level_Name";*/
 
-                                  <!--
+                                                // Write the SQL query
+                                                $sql = "SELECT Investment_Range_ID, Investment_Range_Name FROM investment_range ORDER BY Investment_Range_ID ASC";
+                                                $result = mysqli_query($conn, $sql);
+
+                                                // Check query execution
+                                                if (mysqli_num_rows($result) > 0) {
+                                                // echo "<select>";
+                                                  
+                                                  // Loop through each row in the result
+                                                  while($row = mysqli_fetch_assoc($result)) {
+                                                    $value = $row['Investment_Range_ID'];
+                                                    $text = $row['Investment_Range_Name'];
+                                                    
+                                                    // Display option element with value and text
+                                                    echo "<option value='$value'>$text $</option>";
+                                                  }
+                                                  
+                                                  echo "</select>";
+                                                } else {
+                                                  echo "No records found";
+                                                }
+
+                                                // Close connection
+                                                //mysqli_close($conn);
+
+                                                ?>
+                                                </div>
+                                    <!--
+                                    <div class="mt-3 multi-range-slider multi-ranges-basic" name="SelectInvestmentRange" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]"></div>-->
+                                    <!--<label class="form-label" for="customRange1">Example range</label> -->
+                                    <!--
+                                    <div id="multi-ranges-tooltips" data-tooltip="true"></div>
+                                    <div data-mdb-range-init class="range">
+                                      <input type="range" class="form-range" id="customRange1" name="SelectInvestmentRange" value="1"/>
+                                    </div>    <!--                                
+<div class="mt-3 multi-range-slider multi-ranges-basic" name="SelectInvestmentRange" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="1000" data-mdb-steps="10" data-mdb-startValues="[100,1000]">
+
+</div>-->
+                    <!--
                                     <div class="form-outline mb-2">
-                                      <label class="form-label text-dark" for="SelectInvestmentScope">نطاق الاستثمار<span class="text-danger">*</span></label>
-                                      <div class="mt-3 multi-range-slider multi-ranges-basic" name="SelectInvestmentScope" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]"></div>
+                                      <label class="form-label text-dark" for="SelectInvestmentRange">نطاق الاستثمار<span class="text-danger">*</span></label>
+                                      <div class="mt-3 multi-range-slider multi-ranges-basic" name="SelectInvestmentRange" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]"></div>
 
                                       <!--
                                       <div class="multi-range-slider multi-ranges-basic" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]"></div>
-                                      <input type="range" class="form-range mt-4 multi-range-slider multi-ranges-basic" name="SelectInvestmentScope" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]">-->
+                                      <input type="range" class="form-range mt-4 multi-range-slider multi-ranges-basic" name="SelectInvestmentRange" data-mdb-multi-range-slider-init data-mdb-tooltip="true" data-mdb-min="100" data-mdb-max="10000" data-mdb-steps="100" data-mdb-startValues="[20,100]">-->
 
   <!--
                                       <div class="range-value" id="rangeV"></div>
 
-                                      <input type="range" class="form-range mt-4 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope" min="100" max="10000000" value="1000" id="SelectInvestmentScope">
-                                      <!--<div id="multi-ranges-tooltips" class="mt-3 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope"></div>
-                                      <input type="range" class="form-range mt-4 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope" id="SelectInvestmentScope">
-                                      <div class="mt-3 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope"></div>
+                                      <input type="range" class="form-range mt-4 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentRange" min="100" max="10000000" value="1000" id="SelectInvestmentRange">
+                                      <!--<div id="multi-ranges-tooltips" class="mt-3 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentRange"></div>
+                                      <input type="range" class="form-range mt-4 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentRange" id="SelectInvestmentRange">
+                                      <div class="mt-3 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentRange"></div>
                                     -->
                                   </div>          
                                 </div>
@@ -784,7 +855,7 @@ include "./head.php";
                                   <div class="col-md-6">
                                     <div class="form-outline text-start mb-2">
                                       <label class="form-label select-label text-dark" for="SelectGrowthStrategy">ما هي استراتيجية النمو الخاص بك؟<span class="text-danger">*</span></label>
-                                      <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="المواقع" class="form-select" name="SelectGrowthStrategy" id="SelectGrowthStrategy">
+                                      <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="استراتيجية النمو" class="form-select" name="SelectGrowthStrategy" id="SelectGrowthStrategy">
                                       <?php
                                       // Define your table and column names (change as needed)
                                           $growth_strategy = "growth_strategy";
@@ -830,8 +901,8 @@ include "./head.php";
                                   </div>
                                   <div class="col-md-6">
                                     <div class="form-outline text-start mb-2">
-                                        <label class="form-label select-label text-dark" for="SelectGrowthStrategy">ما هو مستوى خبرتك في مجال ريادة الأعمال؟<span class="text-danger">*</span></label>
-                                        <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="الخبرة" class="form-select" name="SelectExperience" id="SelectExperience">
+                                        <label class="form-label select-label text-dark" for="SelectExperienceLevel">ما هو مستوى خبرتك في مجال ريادة الأعمال؟<span class="text-danger">*</span></label>
+                                        <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="مستوى الخبرة" class="form-select" name="SelectExperienceLevel" id="SelectExperienceLevel">
                                         <?php
                                       // Define your table and column names (change as needed)
                                           $experience_level = "experience_level";
@@ -839,7 +910,7 @@ include "./head.php";
                                           $Experience_Level_Name = "Experience_Level_Name";
 
                                           // Write the SQL query
-                                          $sql = "SELECT $Experience_Level_ID, $Experience_Level_Name FROM $experience_level ORDER BY $Experience_Level_Name ASC";
+                                          $sql = "SELECT $Experience_Level_ID, $Experience_Level_Name FROM $experience_level ORDER BY $Experience_Level_ID ASC";
                                           $result = mysqli_query($conn, $sql);
 
                                           // Check query execution
@@ -1015,7 +1086,7 @@ include "./head.php";
                                 <div class="text-start mb-2">
                                 <?php
                                 // Define your table and column names (change as needed)
-                                
+                                /*
                                     $languages = "languages";
                                     $Language_ID = "Language_ID";
                                     $Language_Name = "Language_Name";
@@ -1028,7 +1099,7 @@ include "./head.php";
                                     
                                   }*/
                                     // Write the SQL query
-                                    $sql = "SELECT $Language_ID, $Language_Name FROM $languages ORDER BY $Language_Name ASC";
+                                    $sql = "SELECT * FROM languages ORDER BY Language_Name ASC";
                                     $result = mysqli_query($conn, $sql);
 
                                     // Check query execution
@@ -1037,8 +1108,8 @@ include "./head.php";
                                       
                                       // Loop through each row in the result
                                       while($row = mysqli_fetch_assoc($result)) {
-                                        $value = $row[$Language_ID];
-                                        $text = $row[$Language_Name];
+                                        $value = $row['Language_ID'];
+                                        $text = $row['Language_Name'];
                                         
                                         // Display option element with value and text
                                         //echo "<option value='$value'>$text</option>";
@@ -1163,7 +1234,7 @@ include "./head.php";
                                 <button type="button" id="prev-step" class="btn btn-primary" data-mdb-ripple-init>
                                   السابق
                                 </button>
-                                <button type="button" class="btn btn-primary" type="submit" data-mdb-ripple-init>تم</button>
+                                <button class="btn btn-primary" type="submit" name="Signup-2-Submit" data-mdb-ripple-init>تم</button>
                               </div>
                               <!-- Buttons -->                                
                               <!-- Buttons - ->
@@ -1176,6 +1247,12 @@ include "./head.php";
                           
                         </ul>
                       </form>
+                      <script>
+                          document.getElementById('Phone_Number').addEventListener('input', function (e) {
+                              var x = e.target.value.replace(/\D/g, '');
+                              e.target.value = x;
+                          });
+                      </script>
                       <!-- Buttons -- >
                       <div class="d-flex justify-content-center">
                         <button id="prev-step" class="btn btn-primary w-100 me-2" data-mdb-ripple-init>
@@ -1184,6 +1261,30 @@ include "./head.php";
                         <button id="next-step" class="btn btn-primary w-100" data-mdb-ripple-init>التالي</button>
                       </div>-->
                       <!-- Buttons -->
+                      <?php
+                    if(isset($_SESSION['error'])){
+                    echo
+                    "
+                    <div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                    <i class='fas fa-times'></i>
+                        ".$_SESSION['error']."
+                        <button type='button' class='btn-close alert-dismissible' data-mdb-dismiss='alert' aria-label='Close'></button>
+                    </div>
+                    ";
+                    unset($_SESSION['error']);
+                    }
+                    if(isset($_SESSION['success'])){
+                    echo
+                    "
+                    <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                        <i class='fas fa-check-circle'></i>
+                        ".$_SESSION['success']."
+                        <button type='button' class='btn-close alert-dismissible' data-mdb-dismiss='alert' aria-label='Close'></button>
+                    </div>
+                    ";
+                    unset($_SESSION['success']);
+                    }
+                  ?>
                       </div>
 
                     </section>
@@ -1281,10 +1382,10 @@ include "./head.php";
                       <div class="col-md-6">
 
                         <div class="form-outline text-start mb-3">
-                          <label class="form-label text-dark" for="SelectInvestmentScope">نطاق الاستثمار<span class="text-danger">*</span></label>
-                          <div class="mt-3 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope"></div>
-                          <!--<input type="range" class="form-range mt-4 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope" id="SelectInvestmentScope">
-                          <div class="mt-3 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentScope"></div>
+                          <label class="form-label text-dark" for="SelectInvestmentRange">نطاق الاستثمار<span class="text-danger">*</span></label>
+                          <div class="mt-3 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentRange"></div>
+                          <!--<input type="range" class="form-range mt-4 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentRange" id="SelectInvestmentRange">
+                          <div class="mt-3 multi-range-slider" data-mdb-multi-range-slider-init data-mdb-tooltip="true" name="SelectInvestmentRange"></div>
                         -- >
                       </div>
                     </div>
@@ -1486,11 +1587,12 @@ include "./head.php";
                   </div>
 
                   <?php
+                  
 /*
-                  if (isset($_POST['SelectInvestmentScope'])) 
+                  if (isset($_POST['SelectInvestmentRange'])) 
                   {
                     echo "range = ";
-                      echo($_POST['SelectInvestmentScope']); 
+                      echo($_POST['SelectInvestmentRange']); 
                   }
                   if (isset($_POST['SelectExpYears'])){
                     $SelectExpYears = $_POST['SelectExpYears'];

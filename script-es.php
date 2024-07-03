@@ -1,13 +1,13 @@
 <!-- MDB ESSENTIAL -->
 <!---->
 
-<script type="text/javascript" src="./assets/js/mdb/mdb.umd.min.js"></script>
-<script type="text/javascript" src="./assets/js/mdb/mdb.es.min.js"></script>
+<script type="text/javascript" src="/SIH/assets/mdb/js/mdb.umd.min.js"></script>
+<script type="text/javascript" src="/SIH/assets/mdb/js/mdb.es.min.js"></script>
 
 <!-- MDB PLUGINS -->
-<script type="text/javascript" src="./assets/plugins/js/all.min.js"></script>
+<script type="text/javascript" src="/SIH/assets/mdb/plugins/js/all.min.js"></script>
 
-<script type="text/javascript" src="./assets/js/PrismJS/prism.js"></script>
+<script type="text/javascript" src="/SIH/assets/js/PrismJS/prism.js"></script>
 
 <!-- Custom MDB scripts -->
 <script type="text/javascript">
@@ -101,14 +101,14 @@
     document.getElementById('user-type1-label').style.color = "white";
     document.getElementById('user-type1-label').style.backgroundColor = "#3e84a8";
     //document.getElementById('icon-1').style.color = "white";
-    document.getElementById('icon-1').src= './assets/img/user1.png';
+    document.getElementById('icon-1').src= '/SIH/assets/img/user1.png';
 
     document.getElementById('user-type2-label').style.color = "black";
     document.getElementById('user-type2-label').style.backgroundColor = "white";
     //document.getElementById('icon-2').style.color = "#3e84a8";
     //document.getElementById('icon-2').style.fill = "#3e84a8";
-    //document.getElementById('icon-2').attr('src',"./assets/img/user2-blue.png");
-    document.getElementById('icon-2').src= './assets/img/user2-blue.png';
+    //document.getElementById('icon-2').attr('src',"/SIH/assets/img/user2-blue.png");
+    document.getElementById('icon-2').src= '/SIH/assets/img/user2-blue.png';
 
 
   }  
@@ -117,12 +117,12 @@
     document.getElementById('user-type1-label').style.backgroundColor = "white";
     //document.getElementById('icon-1').style.color = "#3e84a8";
     //document.getElementById('icon-1').style.fill = "red";
-    document.getElementById('icon-1').src= './assets/img/user1-blue.png';
+    document.getElementById('icon-1').src= '/SIH/assets/img/user1-blue.png';
 
     document.getElementById('user-type2-label').style.color = "white";
     document.getElementById('user-type2-label').style.backgroundColor = "#3e84a8";
     //document.getElementById('icon-2').style.color = "white";
-    document.getElementById('icon-2').src= './assets/img/user2.png';
+    document.getElementById('icon-2').src= '/SIH/assets/img/user2.png';
 
   }  
 
