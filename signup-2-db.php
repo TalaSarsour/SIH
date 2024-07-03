@@ -37,8 +37,8 @@ if(isset($_POST['Signup-2-Submit'])){
         //$checkboxvar = $_POST['checkboxvar'];
         $checkboxvar = print_r($_POST['checkboxvar']); 
         //$checkboxvar = "1";
-        $SelectGrowthStrategy = "0";
-        $SelectExperienceLevel = "0";
+        $SelectGrowthStrategy = "1";
+        $SelectExperienceLevel = "1";
         /*echo '<script>
         alert("checkboxvar:'.$checkboxvar.'");
         </script>';
@@ -46,7 +46,7 @@ if(isset($_POST['Signup-2-Submit'])){
         alert("User Type: 1");
         </script>';*/
     }elseif($_SESSION['user_type']=="user2"){
-        $checkboxvar = "0";
+        $checkboxvar = "1";
         $SelectGrowthStrategy = $_POST['SelectGrowthStrategy'];
         $SelectExperienceLevel = $_POST['SelectExperienceLevel'];
         /*echo '<script>
@@ -152,7 +152,7 @@ if(isset($_POST['Signup-2-Submit'])){
         //echo "</select>";
         } else {
         // Write the SQL query
-        $sql = "INSERT IGNORE INTO $users_information ($User_ID, $User_Gender_ID, $User_Phone_Number, $User_Country_ID, $User_City_ID, $User_About_Me, $User_LinkedIn_ID, $User_Facebook_ID, $User_Areas_Of_Experience_ID, $User_Years_Of_Experience, $User_Investment_Range_ID, $User_Location, $User_Stages_Of_Business_Operations_IDs, $User_Industrial_Sectors_IDs, $User_Language_IDs, $User_Investor_Type_IDs, $User_Experience_Level_ID, $User_Growth_Strategy_ID, $User_Team_ID, $User_Profile_Picture_Path) VALUES ('" . $ID . "', '" . $Gender . "', '" . $Phone_Number . "', '" . $SelectCountry . "', '" . $SelectCity . "', '" . $AboutMe . "', '" . $LinkedIn . "', '" . $Facebook . "', '" . $SelectAreasOfExp . "', '" . $ExpYears . "', '" . $SelectInvestmentRange . "', '" . $SelectLocation . "', '" . $checkboxvar . "', '" . $checkboxvar2 . "', '" . $checkboxvar3 . "', '" . $checkboxvar4 . "', '" . $SelectExperienceLevel . "', '" . $SelectGrowthStrategy . "', '" . $Team_ID . "', '" . $Profile_Picture_Path . "')";
+        $sql = "INSERT INTO $users_information ($User_ID, $User_Gender_ID, $User_Phone_Number, $User_Country_ID, $User_City_ID, $User_About_Me, $User_LinkedIn_ID, $User_Facebook_ID, $User_Areas_Of_Experience_ID, $User_Years_Of_Experience, $User_Investment_Range_ID, $User_Location, $User_Stages_Of_Business_Operations_IDs, $User_Industrial_Sectors_IDs, $User_Language_IDs, $User_Investor_Type_IDs, $User_Experience_Level_ID, $User_Growth_Strategy_ID, $User_Team_ID, $User_Profile_Picture_Path) VALUES ('" . $ID . "', '" . $Gender . "', '" . $Phone_Number . "', '" . $SelectCountry . "', '" . $SelectCity . "', '" . $AboutMe . "', '" . $LinkedIn . "', '" . $Facebook . "', '" . $SelectAreasOfExp . "', '" . $ExpYears . "', '" . $SelectInvestmentRange . "', '" . $SelectLocation . "', '" . $checkboxvar . "', '" . $checkboxvar2 . "', '" . $checkboxvar3 . "', '" . $checkboxvar4 . "', '" . $SelectExperienceLevel . "', '" . $SelectGrowthStrategy . "', '" . $Team_ID . "', '" . $Profile_Picture_Path . "')";
          
          /*$sql = "INSERT INTO $users_information ($User_Gender_ID, $User_Phone_Number, $User_Country_ID, $User_City_ID, $User_About_Me, $User_LinkedIn_ID, $User_Facebook_ID,
          $User_Areas_Of_Experience_ID, $User_Years_Of_Experience, $User_Investment_Range_ID, $User_Location, $User_Stages_Of_Business_Operations_IDs, $User_Industrial_Sectors_IDs, $User_Language_IDs

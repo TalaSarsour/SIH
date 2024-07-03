@@ -661,7 +661,7 @@ include "./head.php";
                                     <label class="form-label text-dark" for="SelectInvestmentRange">ما هو نطاق الاستثمار الذي تهتم فيه<span class="text-danger">*</span></label>
                                     <?php endif; ?>
                                     <div class="form-outline text-start mt-2">
-                                            <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="نطاق الاستثمار" class="form-select" name="SelectNewInvestmentRange" id="SelectNewInvestmentRange" required>
+                                            <select data-mdb-select-init data-mdb-filter="true" data-mdb-clear-button="true" data-mdb-placeholder="نطاق الاستثمار" class="form-select" name="SelectInvestmentRange" id="SelectInvestmentRange" required>
 
                                       <?php
                                                 // Define your table and column names (change as needed)
