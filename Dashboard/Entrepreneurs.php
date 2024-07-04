@@ -254,7 +254,7 @@ include "./session.php";
                     <div class="text-center">
 
                     <button type="button" class="btn btn-primary" data-mdb-ripple-init onclick="'.$location.'">عرض المزيد</button>
-                    <button type="button" class="btn btn-primary" data-mdb-ripple-init onclick="'.$User_About_Me.'">مراسلة</button>
+                    <button type="button" class="btn btn-primary" data-mdb-ripple-init onclick="'.$location2.'">مراسلة</button>
                     <!--<button type="button" class="btn btn-danger" data-mdb-ripple-init onclick="deleteFromDatabase('.$User_ID.');">حذف من المفضلة</button>-->
                     </div>
                   </div>

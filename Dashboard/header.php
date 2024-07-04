@@ -263,9 +263,9 @@
           </a>
           <a href="./profile.php" class="list-group-item list-group-item-action py-2 text-secondary"  data-mdb-ripple-init><i
               class="far fa-user fa-fw me-3"></i><span>تحديث الملف الشخصي</span></a>
-          <a href="./chat.php" class="list-group-item list-group-item-action py-2 text-secondary" data-mdb-ripple-init><i 
+          <!--<a href="./chat.php" class="list-group-item list-group-item-action py-2 text-secondary" data-mdb-ripple-init><i 
               class="fa-light fa-message-dots me-3"></i><span>الدردشة</span>
-          </a>
+          </a>-->
           <!--
           <a href="./sign-out.php" class="list-group-item list-group-item-action py-2 text-secondary sign-out" data-mdb-ripple-init><i
               class="fas fa-arrow-right-from-bracket fa-fw me-3"></i><span>تسجيل خروج</span></a>-->
@@ -364,7 +364,7 @@
 
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="./profile.php">تحديث الملف الشخصي</a></li>
-              <li><a class="dropdown-item" href="#">اعدادات الحساب</a></li>
+              <!--<li><a class="dropdown-item" href="#">اعدادات الحساب</a></li>-->
               <li><a class="dropdown-item" href="./sign-out.php">تسجيل الخروج</a></li>
             </ul>
           </li>

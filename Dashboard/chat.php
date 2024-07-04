@@ -71,8 +71,7 @@ include "./session.php";
                                 INNER JOIN investment_range ON users_information.User_Investment_Range_ID = investment_range.Investment_Range_ID
                                 INNER JOIN stages_of_business_operations ON users_information.User_Stages_Of_Business_Operations_IDs = stages_of_business_operations.Stages_Of_Business_Operations_ID
                                 INNER JOIN teams ON users_information.User_Team_ID = teams.Team_ID
-                                LEFT JOIN messages AS sent_messages ON users.User_ID = sent_messages.sender_id
-                                LEFT JOIN messages AS received_messages ON users.User_ID = received_messages.receiver_id
+                                INNER JOIN messages AS sent_messages ON users.User_ID = sent_messages.sender_id
 
                                 WHERE
                                     (users.User_Type_ID = 1 OR users.User_Type_ID = 2)
@@ -149,10 +148,11 @@ include "./session.php";
 
                                         }
                                         $location="location.href='./view_profile.php?view_user_id=".$User_ID."'";
+                                        $location2="location.href='./chat.php?user_id=".$User_ID."&user_type_id=".$User_Type_ID."'";
 
                                         echo ' 
                                             <li class="p-2 border-bottom">
-                                              <a href="#!" class="d-flex justify-content-between">
+                                              <a href="onclick="'.$location2.'" class="d-flex justify-content-between">
                                                 <div class="d-flex flex-row">
                                                   <div>
                                                     <img
@@ -420,7 +420,11 @@ include "./session.php";
       -->
       <?php
 $user1_id = $_SESSION['User_ID']; //for sender
-$user2_id = 14; //$_SESSION['User_ID']; for reciever
+if(isset($_GET['user_type_id'])){
+  $Chat_User_Type_ID = $_GET['user_type_id'];
+}
+
+$user2_id = $Chat_User_Type_ID; //$_SESSION['User_ID']; for reciever
 
 $sql = "SELECT
             messages.id,
