@@ -7,8 +7,8 @@ if(!isset($_SESSION['user_type'])){
   exit;
 }
 if(!isset($_SESSION['Email_Address'])){
-  //header("location: ./signup.php");
-  //exit;
+  header("location: ./signup.php");
+  exit;
 }
 include "./session.php";
 include "./head.php";

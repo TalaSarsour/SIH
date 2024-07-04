@@ -240,15 +240,16 @@
                                 <p>Your New OTP Code resend again in <span id="timer" class="text-primary">10</span> seconds...</p>
                             </div>
                             <div class="text-center mb-2">
-                            <input type="submit" name="submit" id= "signup" class="btn btn-success btn-lg mb-1 mx-4" value="Verify My Account" />
+                            <input type="submit" name="submit" id= "signup" class="btn btn-success btn-lg mb-1 mx-4" value="تأكيد تفعيل حسابي" />
                             </div>
                             <div id="otp_link" style="display:none;">
                                 <p>Didn't get the OTP Code? </p><!--<a href="Send_Email_OTP.php">Resend a new OTP Code</a></p>-->
                             </div>
+                            <!--
                             <div class="text-center mb-2">
 
                             <input type="button" name="resend_otp" id= "resend_otp" class="btn btn-primary btn-lg mb-1 mx-4" value="Resend a New OTP Code" />
-                            </div>
+                            </div>-->
                         </div>
 
                         </form>

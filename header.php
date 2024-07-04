@@ -36,7 +36,7 @@
             <a class="nav-link" href="./common-questions.php" rel="nofollow">الاسئلة الشائعة</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./partners.php" rel="nofollow">ماذا يقول عملاؤنا</a>
+            <a class="nav-link" href="./feedback.php" rel="nofollow">ماذا يقول عملاؤنا</a>
           </li>
         </ul>
         <ul class="navbar-nav d-flex flex-row ">

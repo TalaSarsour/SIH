@@ -442,20 +442,20 @@ else{
                   $Investor_Type = $row[$Investor_Type_Name];
                   echo '
                   <div class="col-lg-4 col-md-6">
-                  <div class="card text-start h-100">
+                  <div class="card text-start">
                     <div class="card-body">
                       <p class="card-text text-secondary">
                         '.$text.'
                       </p>
                     </div>
                     <div class="card-footer" style="display: inline-block;">
-                      <img src="'.$path.'" class="img-fluid me-3" style="width: 50px; height: 50px;"/>
+                      <img src="'.$path.'" class="img-fluid me-2" style="width: 50px; height: 50px;"/>
                       
                       <span class="text-dark">
                       '.$full_name.' 
                       </span>
 
-                      <span class="badge badge-light ms-1 mb-4">'.$Investor_Type.'</span>
+                      <span class="badge badge-light">'.$Investor_Type.'</span>
 
                     </div>
                   </div>

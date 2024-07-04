@@ -145,7 +145,7 @@ include "./session.php";
                     <div class="card-img-overlay" style="background-color: rgba(0, 0, 0, 0.3)">
                       <div class="row d-flex justify-content-between">
                         <div class="col-md-3 col-sm-3 text-center text-light">
-                          <p class="card-text " style="background-color: rgba(0, 0, 0, 0.5)">
+                          <p class="card-text" style="background-color: rgba(0, 0, 0, 0.5)">
                             '.$Project_Categories_Name.'
                           </p>
                         </div>
@@ -713,6 +713,20 @@ include "./session.php";
                     }elseif($Project_Category == 2){
                       $Project_Picture_Path = "/SIH/assets/img/card-image-2.png";
                     }elseif($Project_Category == 3){
+                      $Project_Picture_Path = "/SIH/assets/img/card-image-3.png";
+                    }elseif($Project_Category == 4){
+                      $Project_Picture_Path = "/SIH/assets/img/card-image-1.png";
+                    }elseif($Project_Category == 5){
+                      $Project_Picture_Path = "/SIH/assets/img/card-image-2.png";
+                    }elseif($Project_Category == 6){
+                      $Project_Picture_Path = "/SIH/assets/img/card-image-3.png";
+                    }elseif($Project_Category == 7){
+                      $Project_Picture_Path = "/SIH/assets/img/card-image-1.png";
+                    }elseif($Project_Category == 8){
+                      $Project_Picture_Path = "/SIH/assets/img/card-image-2.png";
+                    }elseif($Project_Category == 9){
+                      $Project_Picture_Path = "/SIH/assets/img/card-image-3.png";
+                    }elseif($Project_Category == 10){
                       $Project_Picture_Path = "/SIH/assets/img/card-image-3.png";
                     }
                     if($Project_Minimum_Value > $Project_Target_Value){
