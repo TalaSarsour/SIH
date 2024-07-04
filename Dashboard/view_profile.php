@@ -145,8 +145,9 @@ echo '<script>alert("session gender : '.$_SESSION['User_Gender_ID'] .'")</script
                       </span>
                     </p>
                     <?php
-                    
-                    if($_SESSION['User_Type_ID']=="1") : ?> 
+                        $View_User_Type_ID = $_GET['view_user_type_id'];
+
+                    if($View_User_Type_ID=="1") : ?> 
 <?php /*
                       <p class="card-text text-dark mt-2">
                         نوع المستثمر: <span class="text-secondary">
@@ -192,10 +193,10 @@ echo '<script>alert("session gender : '.$_SESSION['User_Gender_ID'] .'")</script
                           }
                         ?>
                       </p>
-                      <?php elseif($_SESSION['User_Type_ID']=="2") : ?>
+                      <?php elseif($View_User_Type_ID=="2") : ?>
 
                       */
-                    if($_SESSION['User_Type_ID']=="2") : ?>
+                    if($View_User_Type_ID=="2") : ?>
                       <p class="card-text text-dark mt-2">
                         مستوى الخبرة : <span class="text-secondary">
                           <!--  
@@ -391,7 +392,15 @@ echo '<script>alert("session gender : '.$_SESSION['User_Gender_ID'] .'")</script
                     <div class="row d-flex justify-content-between">
                       <div class="col-md-4">
                         <h5 class="card-title fw-bold">
-                          نوع المستثمر
+                          <?php 
+                        if($View_User_Type_ID=="1"){
+                          echo 'نوع المستثمر';
+
+                        }elseif($View_User_Type_ID=="2"){
+                          echo 'نوع المستثمر المهتم به';
+                        }
+                         
+                        ?>
                         </h5>
                       </div>
                     </div>
@@ -427,7 +436,7 @@ echo '<script>alert("session gender : '.$_SESSION['User_Gender_ID'] .'")</script
                   </div>
                 </div>
                 <?php
-                if($_SESSION['User_Type_ID']=="1") : ?> 
+                if($View_User_Type_ID=="1") : ?> 
                 <div class="card mt-4">
                   <div class="card-body">
                     <div class="row d-flex justify-content-between">

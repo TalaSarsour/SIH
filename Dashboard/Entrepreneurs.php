@@ -218,7 +218,7 @@ include "./session.php";
                     }
         
                   }
-                  $location="location.href='./view_profile.php?view_user_id=".$User_ID."'";
+                  $location="location.href='./view_profile.php?view_user_id=".$User_ID."&view_user_type_id=".$User_Type_ID."'";
 
                   echo ' 
                 <div class="col-lg-4 col-md-12 pt-4">

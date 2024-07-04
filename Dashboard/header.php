@@ -31,12 +31,18 @@
   if(isset($_GET['view_user_id'])){
     //echo '<script>alert("view user id : '.$_GET['view_user_id'] .'")</script>';
     $View_User_ID = $_GET['view_user_id'];
+    $View_User_Type_ID = $_GET['view_user_type_id'];
+
     if($View_User_ID >0){
-      if($_SESSION['User_Type_ID'] == 1){
-        $type = 2;
+      /*if($_SESSION['User_Type_ID'] == 1){
+        if($_SESSION['User_Type_ID'] == 1){
+          $type = 1;
+        }else{
+          $type = 2;
+        }
       }elseif($_SESSION['User_Type_ID'] == 2){
-        $type = 1;
-      }
+        $type = 2;
+      }*/
       $SqlCheckEmail = "SELECT * FROM users 
       INNER JOIN users_information ON users.User_ID = users_information.User_ID 
       INNER JOIN user_gender ON users_information.User_Gender_ID = user_gender.Gender_ID 
@@ -50,7 +56,7 @@
       INNER JOIN stages_of_business_operations ON users_information.User_Stages_Of_Business_Operations_IDs = stages_of_business_operations.Stages_Of_Business_Operations_ID 
       INNER JOIN teams ON users_information.User_Team_ID = teams.Team_ID 
     
-      WHERE users.User_ID LIKE '$View_User_ID' AND users.User_Type_ID LIKE $type AND users.User_Status_ID LIKE 1";
+      WHERE users.User_ID LIKE '$View_User_ID' AND users.User_Type_ID LIKE $View_User_Type_ID AND users.User_Status_ID LIKE 1";
     }else{
       if($_SESSION['User_Type_ID'] == 1){
         $_SESSION['error'] = 'هذا الريادي غير موجود!.';

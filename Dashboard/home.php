@@ -135,10 +135,11 @@ include "./session.php";
                       $projects 
                   INNER JOIN 
                       $project_categories ON $project_categories.$Project_Categories_ID = $projects.$Project_Category 
-                  WHERE $projects.$Project_User_ID != $User_ID AND $projects.$Project_User_Type_ID != $User_Type
+                  WHERE $projects.$Project_User_ID != $User_ID 
                   ORDER BY 
                       $Project_ID ASC";
                 }
+                //AND $projects.$Project_User_Type_ID != $User_Type
                 $result = mysqli_query($conn, $sql);
                 $count = mysqli_num_rows($result);
 
